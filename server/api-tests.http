@@ -1,0 +1,85 @@
+
+##### RETRIEVING #####
+
+### Retrieve users
+GET http://localhost:8080/users
+
+### Retrieve items
+GET http://localhost:8080/items
+
+### Retrieve orders
+GET http://localhost:8080/orders
+
+
+##### ADDING #####
+
+### Adding a user
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+    "_id": "1",
+    "firstName": "Jennifer",
+    "lastName": "Aniston",
+    "email": "J.A@thefriendzone.com",
+    "password": "iheartpaleontologists",
+    "address": "Hedinsgatan 3",
+    "city": "Stockholm",
+    "cart": [{"_id": 123, "quantity": 2}, {"_id":567, "quantity": 8}, {"_id": 155, "quantity": 1}, {"_id": 321, "quantity": 2}, {"_id": 111, "quantity": 6}, {"_id": 453, "quantity": 3}, {"_id": 789, "quantity": 1}, {"_id": 341, "quantity": 7}],
+    "isStaff": false
+}
+
+### Adding an item
+POST http://localhost:8080/items
+Content-Type: application/json
+
+{
+    "_id": "123",
+    "title": "Terraforming Mars",
+    "image": "https://www.dragonslair.se/images/39901/product",
+    "publisher": "FryxGames",
+    "price": 350.00,
+    "NumInStock": 37,
+    "isExpansion": false,
+    "releaseYear": 2016,
+    "minPlayers": 1,
+    "maxPlayers": 5
+}
+
+### Adding an order
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+    "_id": "12212122",
+    "userId": 1,
+    "orderDate": "J.A@thefriendzone.com",
+    "packagedDate": "iheartpaleontologists",
+    "shippedDate": "Hedinsgatan 3",
+    "deliveredDate": "Stockholm",
+    "contents": [{"_id": 123, "quantity": 2}, {"_id":567, "quantity": 8}, {"_id": 155, "quantity": 1}, {"_id": 321, "quantity": 2}, {"_id": 111, "quantity": 6}, {"_id": 453, "quantity": 3}, {"_id": 789, "quantity": 1}, {"_id": 341, "quantity": 7}],
+    "totalCost": 9876.00
+}
+
+
+
+
+
+### Deleting a user
+DELETE http://localhost:8080/users/ID
+
+### Replace a user's attributes
+PUT http://localhost:8080/users/ID
+Content-Type: application/json
+
+{
+    "status": "deceased"
+}
+
+### Update a user
+PATCH http://localhost:8080/users/ID
+Content-Type: application/json
+
+{
+    "password": "iHATEpaleontologists"
+}
