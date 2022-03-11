@@ -18,6 +18,32 @@ const app = express();
 app.use(cors({origin: "http://localhost:3000/"}));
 app.use(express.json());
 
+//Logging
+const requestLogger = (request, response, next) => {
+    const timestamp = new Date().toISOString();
+    const method = request.method;
+    const url = request.url;
+    const currentTimeMs = Date.now();
+
+    const logString = `
+        Time: ${timestamp}
+        Method: ${method}
+        Url: ${url}
+    `;
+
+    request.on("end", () => {
+        const elapsedTimeMs = Date.now() - currentTimeMs;
+        console.log(`
+            ${logString}
+            Elapsed Time: ${elapsedTimeMs}ms
+        `);
+    });
+
+    next();
+};
+
+app.use(requestLogger);
+
 //Define methods - these need to be made into variables
 app.get('/users', async (req, res) => {
     const users = await userCollection.find({}).toArray();
