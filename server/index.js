@@ -1,6 +1,7 @@
 //Import dependencies
 import express from 'express';
 import mongodb from 'mongodb';
+import cors from 'cors';
 
 //Configure MongoDB
 const mongoClient = new mongodb.MongoClient('mongodb://localhost:27017');
@@ -14,6 +15,7 @@ const orderCollection = db.collection('orders');
 const PORT = 8080;
 const app = express();
 
+app.use(cors({origin: "http://localhost:3000/"}));
 app.use(express.json());
 
 //Define methods - these need to be made into variables
