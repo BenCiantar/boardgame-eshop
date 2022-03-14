@@ -5,13 +5,16 @@ export function renderItemList(props) {
     for (let i = 0; i < props.items.length; i++) {
         rows.push(
             <div className="item-card" key={"item-" + i}>
-                <img src={props.items[i].image} alt={props.items[i].title} width="200" height="200" /><br />
-                Name: {props.items[i].title}<br />
-                Publisher: {props.items[i].publisher}<br />
-                Release Year: {props.items[i].releaseYear}<br />
-                Cost: {props.items[i].price}kr<br />
-                {/* Expansion?: {props.items[i].isExpansion}<br /> */}
-                Num in stock: {props.items[i].numInStock}
+                <div className="item-img-container">
+                    <img src={props.items[i].image} alt={props.items[i].title} />
+                </div>
+                <div className="item-summary">
+                    <p className="item-title-text">{props.items[i].title}</p>
+                    <p>{props.items[i].publisher}</p>
+                </div>
+                <div className="item-purchase">
+                    <button className="buy-button">{props.items[i].price}kr</button>
+                </div>
             </div>
         );
     }

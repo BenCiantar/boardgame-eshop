@@ -8,7 +8,6 @@ function ItemList(props) {
 
     return (
         <div id="item-list">
-            <h3>Item List</h3>
             {rows}
         </div>
     );
