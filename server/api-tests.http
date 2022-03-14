@@ -18,15 +18,15 @@ POST http://localhost:8080/users
 Content-Type: application/json
 
 {
-    "_id": "1",
-    "firstName": "Jennifer",
-    "lastName": "Aniston",
-    "email": "J.A@thefriendzone.com",
-    "password": "iheartpaleontologists",
+    "_id": "2",
+    "firstName": "mbhdj",
+    "lastName": "scsc",
+    "email": "cscsc",
+    "password": "cscsc",
     "address": "Hedinsgatan 3",
     "city": "Stockholm",
-    "cart": [{"_id": 123, "quantity": 2}, {"_id":567, "quantity": 8}, {"_id": 155, "quantity": 1}, {"_id": 321, "quantity": 2}, {"_id": 111, "quantity": 6}, {"_id": 453, "quantity": 3}, {"_id": 789, "quantity": 1}, {"_id": 341, "quantity": 7}],
-    "isStaff": false
+    "cart": [],
+    "isStaff": true
 }
 
 ### Adding an item
@@ -34,14 +34,14 @@ POST http://localhost:8080/items
 Content-Type: application/json
 
 {
-    "_id": "123",
-    "title": "Terraforming Mars",
-    "image": "https://www.dragonslair.se/images/39901/product",
-    "publisher": "FryxGames",
-    "price": 350.00,
-    "NumInStock": 37,
+    "_id": "00002",
+    "title": "Wingspan",
+    "image": "https://www.dragonslair.se/images/53575/product",
+    "publisher": "Stonemaier Games",
+    "price": 697.00,
+    "numInStock": 22,
     "isExpansion": false,
-    "releaseYear": 2016,
+    "releaseYear": 2019,
     "minPlayers": 1,
     "maxPlayers": 5
 }

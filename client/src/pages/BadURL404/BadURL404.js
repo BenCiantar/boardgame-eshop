@@ -6,8 +6,8 @@ import { Header } from "../../components";
 function BadURL404() {
     return (
         <>
-        <Header />
-            <body>
+            <Header />
+            <main>
                 <div>
                     <h1>Router Test - 404!</h1>
                     <nav>
@@ -15,7 +15,7 @@ function BadURL404() {
                         <Link to="/about">About</Link>
                     </nav>
                 </div>
-            </body>
+            </main>
         </>
     )
 }

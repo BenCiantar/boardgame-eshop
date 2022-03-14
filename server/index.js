@@ -15,7 +15,7 @@ const orderCollection = db.collection('orders');
 const PORT = 8080;
 const app = express();
 
-app.use(cors({origin: "http://localhost:3000/"}));
+app.use(cors({origin: "http://localhost:3000"}));
 app.use(express.json());
 
 //Logging
@@ -45,10 +45,10 @@ const requestLogger = (request, response, next) => {
 app.use(requestLogger);
 
 //Define methods - these need to be made into variables
-app.get('/users', async (req, res) => {
-    const users = await userCollection.find({}).toArray();
+app.get('/items', async (req, res) => {
+    const items = await itemCollection.find({}).toArray();
 
-    res.json(users);
+    res.json(items);
 });
 
 app.post('/users', async (req, res) => {

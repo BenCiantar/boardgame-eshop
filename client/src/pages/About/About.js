@@ -6,15 +6,15 @@ import { Header } from "../../components";
 function About() {
     return (
         <>
-        <Header />
-            <body>
+            <Header />
+            <main>
                 <div>
                     <h1>Router Test - About</h1>
                     <nav>
                         <Link to="/">Home</Link>
                     </nav>
                 </div>
-            </body>
+            </main>
         </>
     )
 }
