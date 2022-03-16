@@ -1,6 +1,5 @@
 import { renderItemList } from "../../scripts/rendering";
 
-
 function ItemList(props) {
     console.log(props)
 

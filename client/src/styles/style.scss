@@ -1,5 +1,5 @@
 @import 'variables', 'fonts';
-@import 'ItemList', 'Header', 'Footer';
+@import 'ItemList', 'Header', 'DesktopNav', 'Footer';
 
 * {
     margin: 0; 
@@ -8,6 +8,10 @@
     p {
         color: black;
         font-size: $user-text; 
+        font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+    }
+    li {
+        font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
     }
 }
 

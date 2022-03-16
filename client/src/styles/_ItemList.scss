@@ -1,4 +1,4 @@
-@import 'variables', 'fonts';
+
 
 #item-list {
     width: 100vw;
@@ -33,7 +33,7 @@
         border-color: #E0E0E0;
         border-radius: 25px;
         .item-img-container {
-            height: 50%;
+            height: 55%;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -52,18 +52,18 @@
             }
         }
         .item-summary {
-            height: 30%;
+            height: 25%;
             width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding-top: 15px;
             .item-title-text {
-                font-size: $medium-text;
+                font-size: $small-medium-text;
             }
             .item-publisher-text {
                 font-size: $small-text;
-                margin-top: 3px;
             }
             p {
                 word-break: break-word;
@@ -78,6 +78,26 @@
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
+            .buy-btn {
+                height: 20px;
+                width: 80px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                color: $white;
+                font-size: $small-text;
+                border-radius: 2px;
+                border: none;
+                border-bottom: 1.5px solid rgba(0,0,0,.25);
+                border-left: 1.5px solid rgba(0,0,0,.25);
+            }
+            .btn-in-stock {
+                background-color: $in-stock;
+            }
+            .btn-out-of-stock {
+                background-color: $out-of-stock;
+            }
         }
     }
 }

@@ -1,0 +1,40 @@
+
+
+#desktop-nav {
+    width: 100vw;
+    height: 30px;
+    max-width: 100%;
+    background-color: $nav-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    #desktop-menu {
+        width: 50%;
+        height: 100%;
+        #desktop-menu-list {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            list-style: none;
+            .desktop-menu-item {
+                color: white;
+                padding-left: 25px;
+            }
+        }
+    }
+    #desktop-search {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+        padding-right: 25px;
+        color: white;
+    }
+}

@@ -8,6 +8,7 @@ import * as config from "./config";
 
 function App() {
   const [items, setItems] = useState([]);
+  const [user, setUser] = useState({"loggedIn": true});
   // const [filteredItems, setFilteredItems] = useState(null);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home items={ items }/>} />
+        <Route path="/" element={<Home items={ items } user={ user }/>} />
         <Route path="/about" element={<About />}  />
         <Route path="*" element={<BadURL404 />}  />
       </Routes>  

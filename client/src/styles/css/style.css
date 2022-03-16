@@ -8,16 +8,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'runic';
-  src: url("../../assets/fonts/runic/runic.eot");
-  /* IE9 Compat Modes */
-  src: url("../../assets/fonts/runic/runic.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/runic/runic.woff2") format("woff2"), url("../../assets/fonts/runic/runic.woff") format("woff"), url("../../assets/fonts/runic/runic.ttf") format("truetype"), url("../../assets/fonts/runic/runic.svg#runic") format("svg");
-  /* Legacy iOS */
-  font-weight: normal;
-  font-style: normal;
-}
-
 #item-list {
   width: 100vw;
   max-width: 100%;
@@ -71,7 +61,7 @@
 }
 
 #item-list .item-card .item-img-container {
-  height: 50%;
+  height: 55%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -102,7 +92,7 @@
 }
 
 #item-list .item-card .item-summary {
-  height: 30%;
+  height: 25%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,15 +107,15 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 15px;
 }
 
 #item-list .item-card .item-summary .item-title-text {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
 }
 
 #item-list .item-card .item-summary .item-publisher-text {
   font-size: 0.625rem;
-  margin-top: 3px;
 }
 
 #item-list .item-card .item-summary p {
@@ -149,6 +139,38 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#item-list .item-card .item-purchase .buy-btn {
+  height: 20px;
+  width: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFFFFF;
+  font-size: 0.625rem;
+  border-radius: 2px;
+  border: none;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.25);
+  border-left: 1.5px solid rgba(0, 0, 0, 0.25);
+}
+
+#item-list .item-card .item-purchase .btn-in-stock {
+  background-color: #3a6;
+}
+
+#item-list .item-card .item-purchase .btn-out-of-stock {
+  background-color: red;
 }
 
 @media screen and (max-width: 560px) {
@@ -182,6 +204,9 @@
   font-size: 3.75rem;
   color: white;
   margin-top: 12px;
+  word-break: break-word;
+  white-space: normal;
+  text-align: center;
 }
 
 #header #mobile-nav-section {
@@ -243,11 +268,81 @@
           align-items: center;
 }
 
+#desktop-nav {
+  width: 100vw;
+  height: 30px;
+  max-width: 100%;
+  background-color: #414141;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#desktop-nav #desktop-menu {
+  width: 50%;
+  height: 100%;
+}
+
+#desktop-nav #desktop-menu #desktop-menu-list {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+#desktop-nav #desktop-menu #desktop-menu-list .desktop-menu-item {
+  color: white;
+  padding-left: 25px;
+}
+
+#desktop-nav #desktop-search {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  padding-right: 25px;
+  color: white;
+}
+
 #footer {
   width: 100vw;
   height: 150px;
   max-width: 100%;
-  background-color: blue;
+  background-color: #414141;
 }
 
 * {
@@ -260,6 +355,11 @@
 * p {
   color: black;
   font-size: 1rem;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+* li {
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
 }
 
 main h1 {

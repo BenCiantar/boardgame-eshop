@@ -1,11 +1,18 @@
 $white: #FFFFFF; 
 $black: #000000;
 
+$banner-color: #1e1e1e;
+$nav-color: #414141;
+
+$in-stock: #3a6;
+$out-of-stock: red;
+
 //px units assuming user settings are set to 16px
 $user-text: 1rem;               //16px
 $tiny-text: 0.5rem;             //8px
 $very-small-text: 0.563rem;     //9px
 $small-text: 0.625rem;          //10px
+$small-medium-text: 0.75rem;    //12px
 $medium-text: 0.875rem;         //14px
 $medium-large-text: 0.938rem;   //15px
 $large-text: 1.25rem;           //20px
