@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Header, Item, ItemList } from "../../components";
-
+import { Header, Footer, ItemList } from "../../components";
 
 
 function Home(props) {
@@ -9,16 +8,15 @@ function Home(props) {
         <>
             <Header />
             <main>
-                <div>
-                    <h3>Insert desktop nav bar here</h3>
-                    <h3>Insert breadcrumbs here?</h3>
-                    <h3>Insert search here</h3>
-                    {/* <nav>
-                        <Link to="about">About</Link>
-                    </nav> */}
-                    <ItemList { ...props }/>
-                </div>
+                <h3>Insert desktop nav bar here</h3>
+                <h3>Insert breadcrumbs here?</h3>
+                <h3>Insert search here</h3>
+                {/* <nav>
+                    <Link to="about">About</Link>
+                </nav> */}
+                <ItemList { ...props }/>
             </main>
+            <Footer />
         </>
     )
 }
