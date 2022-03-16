@@ -4,7 +4,7 @@ export function renderItemList(props) {
     const rows = [];
     for (let i = 0; i < props.items.length; i++) {
         rows.push(
-            <div className="item-card" key={"item-" + i}>
+            <div className="item-card grid-item" key={"item-" + i}>
                 <div className="item-img-container">
                     <img src={props.items[i].image} alt={props.items[i].title} />
                 </div>

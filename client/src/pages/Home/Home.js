@@ -10,10 +10,12 @@ function Home(props) {
             <Header />
             <main>
                 <div>
-                    <h1>Router Test - Home</h1>
-                    <nav>
+                    <h3>Insert desktop nav bar here</h3>
+                    <h3>Insert breadcrumbs here?</h3>
+                    <h3>Insert search here</h3>
+                    {/* <nav>
                         <Link to="about">About</Link>
-                    </nav>
+                    </nav> */}
                     <ItemList { ...props }/>
                 </div>
             </main>

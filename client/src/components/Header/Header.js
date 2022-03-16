@@ -1,11 +1,11 @@
 function Header() {
 
     
-
-
     return (
         <header id="header">
-            <h1> TEST HEADER </h1>
+            <div id="mobile-nav-section"></div>
+            <div id="title-section"><h1>The Treasure Chest</h1></div>
+            <div id="cart-section"></div>
         </header>
     );
 }
