@@ -8,6 +8,7 @@ import * as config from "./config";
 
 function App() {
   const [items, setItems] = useState([]);
+  const [users, setUsers] = useState([]);
   const [user, setUser] = useState({"loggedIn": true});
   // const [filteredItems, setFilteredItems] = useState(null);
 
@@ -27,6 +28,23 @@ function App() {
           console.error(err);
       });
   }, []);
+
+  useEffect(() => {
+    fetch(`${config.API_BASE_URL}/users`, {
+        headers: {
+            "content-type": "application/json",
+        },
+    })
+    .then((response) => {
+        return response.json();
+    })
+    .then((result) => {
+        setUsers(result);
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+}, []);
 
   return (
     <div className="App">

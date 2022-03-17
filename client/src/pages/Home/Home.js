@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Header, DesktopNav, Footer, ItemList } from "../../components";
+import React from 'react'
 
 
 function Home(props) {
