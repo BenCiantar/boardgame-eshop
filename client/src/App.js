@@ -9,7 +9,7 @@ import * as config from "./config";
 function App() {
   const [items, setItems] = useState([]);
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({"loggedIn": true});
+  const [user, setUser] = useState({"loggedIn": false});
   // const [filteredItems, setFilteredItems] = useState(null);
 
   useEffect(() => {
@@ -44,12 +44,12 @@ function App() {
     .catch((err) => {
         console.error(err);
     });
-}, []);
+  }, []);
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home items={ items } user={ user }/>} />
+        <Route path="/" element={<Home items={ items } user={ user } setUser={ setUser } users={ users } />} />
         <Route path="/about" element={<About />}  />
         <Route path="*" element={<BadURL404 />}  />
       </Routes>  

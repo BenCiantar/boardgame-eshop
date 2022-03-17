@@ -1,5 +1,6 @@
 import { renderDesktopMenu } from "../../scripts/rendering";
 
+
 function DesktopNav(props) {
 
     const rows = renderDesktopMenu(props);
