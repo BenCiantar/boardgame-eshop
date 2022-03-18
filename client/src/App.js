@@ -50,6 +50,7 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path="/" element={<Home items={ items } user={ user } setUser={ setUser } users={ users } />} />
+                <Route path="home" element={<Home items={ items } user={ user } setUser={ setUser } users={ users } />} />
                 <Route path="/about" element={<About />}  />
                 <Route path="/createaccount" element={<CreateAccount user={ user } setUser={ setUser } users={ users } />}  />
                 <Route path="*" element={<BadURL404 />}  />

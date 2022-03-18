@@ -432,12 +432,21 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: white;
+  color: #FFFFFF;
   padding: 0 10px;
   border-width: 0 1px 0 1px;
   border-style: solid;
-  border-color: white;
+  border-color: #FFFFFF;
   cursor: pointer;
+}
+
+#desktop-nav #desktop-menu #desktop-menu-list a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+#desktop-nav #desktop-menu #desktop-menu-list a:hover {
+  color: #1e1e1e;
 }
 
 #desktop-nav #desktop-menu #desktop-menu-list .desktop-menu-item:first-child {

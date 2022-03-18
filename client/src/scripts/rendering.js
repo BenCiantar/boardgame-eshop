@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+
 //-----------Home Page
 
 export function renderItemList(props) {
@@ -29,9 +32,9 @@ export function renderItemList(props) {
 //-----------Navigation
 
 export function renderDesktopMenu(props) {
-    const guestMenu = ['Home', 'About', 'Login'];
-    const userMenu = ['Home', 'About', 'Orders', 'Account', 'Logout'];
-    const staffMenu = ['Home', 'Account', 'Warehouse', 'logout'];
+    const guestMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, 'Login'];
+    const userMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='orders'>Orders</Link>, <Link to='account'>Account</Link>, 'Logout'];
+    const staffMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='warehouse'>Warehouse</Link>, 'Logout'];
 
     const rows = [];
 
