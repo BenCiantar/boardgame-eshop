@@ -51,6 +51,13 @@ app.get('/items', async (req, res) => {
     res.json(items);
 });
 
+//Define methods - these need to be made into variables
+app.get('/users', async (req, res) => {
+    const users = await userCollection.find({}).toArray();
+
+    res.json(users);
+});
+
 app.post('/users', async (req, res) => {
     const newUser = req.body;
 

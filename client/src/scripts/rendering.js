@@ -32,7 +32,7 @@ export function renderItemList(props) {
 //-----------Navigation
 
 export function renderDesktopMenu(props) {
-    const guestMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, 'Login'];
+    const guestMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='logincreate'>Login</Link>];
     const userMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='orders'>Orders</Link>, <Link to='account'>Account</Link>, 'Logout'];
     const staffMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='warehouse'>Warehouse</Link>, 'Logout'];
 
@@ -43,7 +43,7 @@ export function renderDesktopMenu(props) {
     if (props.user.loggedIn === true && staffMember === false) {
         for (const item of userMenu){
             rows.push(
-            <li className="desktop-menu-item" key={item}>
+            <li className="desktop-menu-item" key={item.props.children}>
                 {item}
             </li>
             );    
@@ -51,7 +51,7 @@ export function renderDesktopMenu(props) {
     } else if (props.user.loggedIn === true && staffMember === true) {
         for (const item of staffMenu){
             rows.push(
-            <li className="desktop-menu-item" key={item}>
+            <li className="desktop-menu-item" key={item.props.children}>
                 {item}
             </li>
             );    
@@ -59,7 +59,7 @@ export function renderDesktopMenu(props) {
     } else {
         for (const item of guestMenu){
             rows.push(
-            <li className="desktop-menu-item" key={item}>
+            <li className="desktop-menu-item" key={item.props.children}>
                 {item}
             </li>
             );    

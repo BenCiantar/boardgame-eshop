@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Header, DesktopNav, LoginScreen, Footer, ItemList } from "../../components";
+import { Header, DesktopNav, Footer, ItemList } from "../../components";
 import React from 'react'
 import { userLogin } from "../../scripts/utils";
 
@@ -16,14 +16,9 @@ function Home(props) {
     //         userLogin(props.users, loginDetails, props.setUser);
     //     }
     // }, 3000);
- 
-
-
-    
 
     return (
         <>
-            <LoginScreen />
             <Header />
             <DesktopNav {...props}/>
             <main>
