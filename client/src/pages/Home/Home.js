@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Header, DesktopNav, Footer, ItemList } from "../../components";
+import { Header, DesktopNav, LoginScreen, Footer, ItemList } from "../../components";
 import React from 'react'
 import { userLogin } from "../../scripts/utils";
 
@@ -11,11 +11,11 @@ function Home(props) {
         "password": "iheartpaleontologists"
     }
     
-    setTimeout(() => {
-        if (!props.user.loggedIn) {
-            userLogin(props.users, loginDetails, props.setUser);
-        }
-    }, 3000);
+    // setTimeout(() => {
+    //     if (!props.user.loggedIn) {
+    //         userLogin(props.users, loginDetails, props.setUser);
+    //     }
+    // }, 3000);
  
 
 
@@ -23,6 +23,7 @@ function Home(props) {
 
     return (
         <>
+            <LoginScreen />
             <Header />
             <DesktopNav {...props}/>
             <main>
