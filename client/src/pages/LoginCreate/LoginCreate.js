@@ -14,8 +14,10 @@ function LoginCreate(props) {
                 <DesktopNav {...props}/>
                 <main>
                     <div id="login-create-wrapper">
-                        Login Successful!
-                        <Link to='/'>Return Home</Link>
+                        <div className="return-home">
+                            <h1>Login Successful!</h1>
+                            <Link to='/'>Return Home</Link>
+                        </div>
                     </div>
                 </main>
                 <Footer />
@@ -28,8 +30,10 @@ function LoginCreate(props) {
                 <DesktopNav {...props}/>
                 <main>
                     <div id="login-create-wrapper">
-                        Account created!
+                        <div className="return-home">
+                        <h1>Account created!</h1>
                         <Link to='/'>Return Home</Link>
+                        </div>
                     </div>
                 </main>
                 <Footer />
@@ -42,8 +46,10 @@ function LoginCreate(props) {
                 <DesktopNav {...props}/>
                 <main>
                     <div id="login-create-wrapper">
-                        You're already logged in!
-                        <Link to='/'>Return Home</Link>
+                        <div className="return-home">
+                            <h1>You're already logged in!</h1>
+                            <Link to='/'>Return Home</Link>
+                        </div>
                     </div>
                 </main>
                 <Footer />

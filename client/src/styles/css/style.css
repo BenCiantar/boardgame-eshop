@@ -280,6 +280,12 @@
           align-items: center;
 }
 
+#login-create-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 #login-section {
   width: 100vw;
   height: auto;

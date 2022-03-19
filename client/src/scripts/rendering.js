@@ -33,7 +33,7 @@ export function renderItemList(props) {
 
 export function renderDesktopMenu(props) {
     const guestMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='logincreate'>Login</Link>];
-    const userMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='orders'>Orders</Link>, <Link to='account'>Account</Link>, <Link to='logout'>Logout</Link>];
+    const userMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='orders'>Orders</Link>, <Link to='account'>Account</Link>, <Link to='/' onClick={() => logout(props)}>Logout</Link>];
     const staffMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='warehouse'>Warehouse</Link>, <Link to='logout'>Logout</Link>];
 
     const rows = [];
@@ -68,4 +68,8 @@ export function renderDesktopMenu(props) {
     }
 
     return rows;
+}
+
+export function logout(props) {
+    props.setUser({"isLoggedIn": false, "isStaff": false});
 }
