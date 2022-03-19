@@ -5,8 +5,23 @@ import { Link } from "react-router-dom";
 
 function LoginCreate(props) {
     const [accountCreated, setAccountCreated] = useState(false);
+    const [loginSuccessful, setLoginSuccessful] = useState(false);
 
-    if (accountCreated === true){
+    if (loginSuccessful === true) {
+        return (
+            <>
+                <Header />
+                <DesktopNav {...props}/>
+                <main>
+                    <div id="login-create-wrapper">
+                        Login Successful!
+                        <Link to='/'>Return Home</Link>
+                    </div>
+                </main>
+                <Footer />
+            </>
+        );
+    } else if (accountCreated === true){
         return (
             <>
                 <Header />
@@ -41,7 +56,7 @@ function LoginCreate(props) {
                 <DesktopNav {...props}/>
                 <main>
                     <div id="login-create-wrapper">
-                        <LoginForm />
+                        <LoginForm {...props} setLoginSuccessful={setLoginSuccessful} />
                         <CreateAccountForm {...props} setAccountCreated={setAccountCreated} />
                     </div>
                 </main>

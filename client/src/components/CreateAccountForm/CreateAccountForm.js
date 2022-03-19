@@ -7,7 +7,6 @@ export default class CreateAccountForm extends React.Component {
     }
 
     handleSubmit = (e) => {
-        
         e.preventDefault();
 
         const isStaff = e.target.email.value.includes('@runic.se');
@@ -24,12 +23,19 @@ export default class CreateAccountForm extends React.Component {
             "cart": [] //Change to inherit guest cart if enough time
         }
 
-        fetch(`${config.API_BASE_URL}/createuser`, {
+        fetch(`${config.API_BASE_URL}/create-user`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(newUserDetails),
+        })
+        .then((response) => {
+            if (!response.ok){
+                throw new Error(response.statusText);
+            } else {
+                return response;
+            }
         })
         .then(response => response.json())
         .then(data => {
@@ -49,7 +55,7 @@ export default class CreateAccountForm extends React.Component {
         this.props.setAccountCreated(true);
         })
         .catch((error) => {
-        console.error('Error:', error);
+            alert(error);
         });
     }
 
