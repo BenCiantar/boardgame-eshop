@@ -44,27 +44,55 @@ const requestLogger = (request, response, next) => {
 
 app.use(requestLogger);
 
-//Define methods - these need to be made into variables
+//Define methods
 app.get('/items', async (req, res) => {
     const items = await itemCollection.find({}).toArray();
 
     res.json(items);
 });
 
-//Define methods - these need to be made into variables
-app.get('/users', async (req, res) => {
-    const users = await userCollection.find({}).toArray();
-
-    res.json(users);
-});
-
-app.post('/users', async (req, res) => {
+app.post('/create-user', async (req, res) => {
     const newUser = req.body;
+    const users = await userCollection.find({}).toArray();
+    let isUniqueUser = true;
 
-    await userCollection.insertOne(newUser);
+    for (let user of users) {
+        if (user.email == newUser.email) {
+            isUniqueUser = false;
+        }
+    }
 
-    res.status(200).end();
+    if (isUniqueUser) {
+        await userCollection.insertOne(newUser);
+        res.json(newUser);
+    } else {
+        res.statusMessage = "This email is already being used for an active account!";
+        res.status(400).end();
+    }
 });
+
+app.post('/login', async (req, res) => {
+    const loginDetails = req.body;
+    const users = await userCollection.find({}).toArray();
+    let correctLogin = false;
+    let userDetails = {};
+
+    for (let user of users) {
+        if (user.email === loginDetails.email && user.password === loginDetails.password) {
+            correctLogin = true;
+            userDetails = user;
+        }
+    }
+
+    if (correctLogin) {
+        res.json(userDetails);
+    } else {
+        res.statusMessage = "Email and password do not match!";
+        res.status(400).end();
+    }
+});
+
+
 
 app.delete('/users/:userId', async (req, res) => {
     const selectedUserId = req.params.userId;

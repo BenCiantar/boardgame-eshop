@@ -14,17 +14,17 @@ GET http://localhost:8080/orders
 ##### ADDING #####
 
 ### Adding a user
-POST http://localhost:8080/users
+POST http://localhost:8080/create-user
 Content-Type: application/json
 
 {
-    "_id": "2",
     "firstName": "mbhdj",
     "lastName": "scsc",
-    "email": "cscsc",
+    "email": "cscgg",
     "password": "cscsc",
     "address": "Hedinsgatan 3",
     "city": "Stockholm",
+    "postcode": 11223,
     "cart": [],
     "isStaff": true
 }
