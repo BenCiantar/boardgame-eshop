@@ -284,7 +284,6 @@
   width: 100vw;
   height: auto;
   max-width: 100%;
-  z-index: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -298,12 +297,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px 0;
+  padding: 20px 10vw;
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+#login-section #login-form {
+  width: 100%;
+  max-width: 600px;
 }
 
 #login-section #login-form #login-container {
   padding: 16px;
+  width: 100%;
 }
 
 #login-section #login-form #login-container input[type=email], #login-section #login-form #login-container input[type=password] {
@@ -341,7 +346,6 @@
   width: 100vw;
   height: auto;
   max-width: 100%;
-  z-index: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -355,13 +359,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 20px;
-  padding: 20px 0;
+  padding: 20px 10vw;
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+#create-account-section #create-account-form {
+  width: 100%;
+  max-width: 600px;
 }
 
 #create-account-section #create-account-form #create-account-container {
   padding: 16px;
+  width: 100%;
 }
 
 #create-account-section #create-account-form #create-account-container input[type=text], #create-account-section #create-account-form #create-account-container input[type=password], #create-account-section #create-account-form #create-account-container input[type=email], #create-account-section #create-account-form #create-account-container input[type=number] {

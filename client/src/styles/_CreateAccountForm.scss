@@ -2,17 +2,18 @@
     width: 100vw;
     height: auto;
     max-width: 100%;
-    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    padding: 20px 0; 
+    padding: 20px 10vw; 
     font-family: $standard-fonts;
     #create-account-form {
+        width: 100%;
+        max-width: 600px;
         #create-account-container {
             padding: 16px;
+            width: 100%;
             input[type=text], input[type=password], input[type=email], input[type=number] {
                 width: 100%;
                 padding: 12px 20px;

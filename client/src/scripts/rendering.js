@@ -33,14 +33,15 @@ export function renderItemList(props) {
 
 export function renderDesktopMenu(props) {
     const guestMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='logincreate'>Login</Link>];
-    const userMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='orders'>Orders</Link>, <Link to='account'>Account</Link>, 'Logout'];
-    const staffMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='warehouse'>Warehouse</Link>, 'Logout'];
+    const userMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='orders'>Orders</Link>, <Link to='account'>Account</Link>, <Link to='logout'>logout</Link>];
+    const staffMenu = [<Link to='/'>Home</Link>, <Link to='about'>About</Link>, <Link to='warehouse'>Warehouse</Link>, <Link to='logout'>Logout</Link>];
 
     const rows = [];
 
-    const staffMember = false; //Change to check email contains company
+    const isLoggedIn = props.user.isLoggedIn;
+    const isStaff = props.user.isStaff;
 
-    if (props.user.loggedIn === true && staffMember === false) {
+    if (isLoggedIn === true && isStaff === false) {
         for (const item of userMenu){
             rows.push(
             <li className="desktop-menu-item" key={item.props.children}>
@@ -48,7 +49,7 @@ export function renderDesktopMenu(props) {
             </li>
             );    
         }  
-    } else if (props.user.loggedIn === true && staffMember === true) {
+    } else if (isLoggedIn === true && isStaff === true) {
         for (const item of staffMenu){
             rows.push(
             <li className="desktop-menu-item" key={item.props.children}>

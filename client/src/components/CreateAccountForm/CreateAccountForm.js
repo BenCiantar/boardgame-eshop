@@ -1,12 +1,56 @@
 import React from "react";
+import * as config from "../../config";
 
 export default class CreateAccountForm extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
     handleSubmit = (e) => {
+        
         e.preventDefault();
-        console.log(e.target.email.value);
-        console.log(e.target.fname.value);
-        console.log(e.target.lname.value);
+
+        const isStaff = e.target.email.value.includes('@runic.se');
+
+        const newUserDetails = {
+            "firstName": e.target.fname.value,
+            "lastName": e.target.lname.value,
+            "email": e.target.email.value,
+            "password": e.target.psw.value,
+            "address": e.target.address.value,
+            "city": e.target.city.value,
+            "postcode": e.target.pcode.value,
+            "isStaff": isStaff,
+            "cart": [] //Change to inherit guest cart if enough time
+        }
+
+        fetch(`${config.API_BASE_URL}/createuser`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newUserDetails),
+        })
+        .then(response => response.json())
+        .then(data => {
+        data.isLoggedIn = true;
+        this.props.setUser({
+            "firstName": data.firstName,
+            "lastName": data.lastName,
+            "email": data.email,
+            "address": data.address,
+            "city": data.city,
+            "postcode": data.postcode,
+            "isStaff": isStaff,
+            "cart": data.cart, //Change to inherit guest cart if enough time
+            "isLoggedIn": true 
+        });
+        console.log('Success:', this.props.user);
+        this.props.setAccountCreated(true);
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
     }
 
     render() {
@@ -45,3 +89,4 @@ export default class CreateAccountForm extends React.Component {
         );
     }
 }
+
