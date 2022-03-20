@@ -4,8 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Warehouse(props) {
-
-    if (props.user.loggedIn === true && props.user.isStaff === true) {
+    if (props.user.LoggedIn === true && props.user.isStaff === true) {
         return (
             <>
                 <Header />
