@@ -26,7 +26,7 @@ function Warehouse(props) {
                     <div id="login-create-wrapper">
                         <div className="return-home">
                             <h1>This area is for staff only. You must be logged into an @runic account to proceed.</h1>
-                            <button><Link to='/'>Return Home</Link></button>
+                            <Link to='/'><button>Return Home</button></Link>
                         </div>
                     </div>
                 </main>

@@ -16,7 +16,7 @@ function LoginCreate(props) {
                     <div id="login-create-wrapper">
                         <div className="return-home">
                             <h1>Login Successful!</h1>
-                            <button><Link to='/'>Return Home</Link></button>
+                            <Link to='/'><button>Return Home</button></Link>
                         </div>
                     </div>
                 </main>
@@ -32,7 +32,7 @@ function LoginCreate(props) {
                     <div id="login-create-wrapper">
                         <div className="return-home">
                         <h1>Account created!</h1>
-                        <button><Link to='/'>Return Home</Link></button>
+                        <Link to='/'><button>Return Home</button></Link>
                         </div>
                     </div>
                 </main>
@@ -48,7 +48,7 @@ function LoginCreate(props) {
                     <div id="login-create-wrapper">
                         <div className="return-home">
                             <h1>You're already logged in!</h1>
-                            <button><Link to='/'>Return Home</Link></button>
+                            <Link to='/'><button>Return Home</button></Link>
                         </div>
                     </div>
                 </main>
