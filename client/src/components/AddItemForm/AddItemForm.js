@@ -76,7 +76,7 @@ export default class AddItemForm extends React.Component {
                                     <input type="number" placeholder="Number in Stock" name="numinstock" required />
 
                                     <label htmlFor="description"><h4>Item Description</h4></label>
-                                    <input type="text" placeholder="Item Description" name="description" required />
+                                    <textarea type="text" id="description-box" placeholder="Item Description" name="description" required />
 
                                     <label htmlFor="category"><h4>Category</h4></label>
                                     <fieldset id="category">

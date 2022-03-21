@@ -418,7 +418,29 @@
   width: 100%;
 }
 
-#add-item-section #add-item-form #add-item-container input[type=text], #add-item-section #add-item-form #add-item-container input[type=date], #add-item-section #add-item-form #add-item-container input[type=radio] {
+#add-item-section #add-item-form #add-item-container textarea {
+  width: 100%;
+  height: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+#add-item-section #add-item-form #add-item-container fieldset {
+  width: 100%;
+  padding: 12px 0;
+  border-style: none;
+}
+
+#add-item-section #add-item-form #add-item-container fieldset input[type=radio] {
+  margin: 0 10px 10px 0;
+}
+
+#add-item-section #add-item-form #add-item-container input[type=text], #add-item-section #add-item-form #add-item-container input[type=date] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -452,13 +474,8 @@
 }
 
 #add-item-section #add-item-form #add-item-container input[type=checkbox] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  padding: 20px 20px;
+  margin: 15px 0;
 }
 
 #add-item-section #add-item-form #add-item-container button {
