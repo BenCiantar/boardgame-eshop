@@ -74,7 +74,7 @@ app.post('/create-user', async (req, res) => {
 app.post('/add-item', async (req, res) => {
     const newItem = req.body;
 
-    await collection.insertOne(newItem);
+    await itemCollection.insertOne(newItem);
 
     res.status(200).end();
 });
