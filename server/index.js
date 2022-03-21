@@ -71,6 +71,15 @@ app.post('/create-user', async (req, res) => {
     }
 });
 
+app.post('/add-item', async (req, res) => {
+    const newItem = req.body;
+
+    await collection.insertOne(newItem);
+
+    res.status(200).end();
+});
+
+
 app.post('/login', async (req, res) => {
     const loginDetails = req.body;
     const users = await userCollection.find({}).toArray();
