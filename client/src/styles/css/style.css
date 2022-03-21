@@ -387,6 +387,62 @@
   text-align: center;
 }
 
+#add-item-section {
+  width: 100vw;
+  height: auto;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 10vw;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+#add-item-section #add-item-form {
+  width: 100%;
+  max-width: 600px;
+}
+
+#add-item-section #add-item-form #add-item-container {
+  padding: 16px;
+  width: 100%;
+}
+
+#add-item-section #add-item-form #add-item-container input[type=text], #add-item-section #add-item-form #add-item-container input[type=password], #add-item-section #add-item-form #add-item-container input[type=email], #add-item-section #add-item-form #add-item-container input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#add-item-section #add-item-form #add-item-container button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 10px;
+}
+
+#add-item-section #add-item-form #add-item-container button:hover {
+  opacity: 0.8;
+}
+
 #create-account-section {
   width: 100vw;
   height: auto;
@@ -494,7 +550,7 @@
 
 #warehouse-wrapper .warehouse-section .collapsible-header {
   width: 80vw;
-  height: 50px;
+  height: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -516,9 +572,27 @@
   height: auto;
 }
 
-#warehouse-wrapper .warehouse-section .collapsible .collapsible-content {
+#warehouse-wrapper .warehouse-section .collapsible .collapsible-order-content {
   width: 100%;
-  height: 50px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#warehouse-wrapper .warehouse-section .collapsible .collapsible-item-content {
+  width: 100%;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

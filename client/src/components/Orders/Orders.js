@@ -7,10 +7,10 @@ function Orders(props) {
                 Orders {props.type}
             </div>
             <div className="collapsible">
-                <div className="collapsible-content">
+                <div className="collapsible-order-content">
                     Content 1 goes here
                 </div>
-                <div className="collapsible-content">
+                <div className="collapsible-order-content">
                     Content 2 goes here
                 </div>
             </div>
