@@ -79,7 +79,6 @@ app.post('/add-item', async (req, res) => {
     res.status(200).end();
 });
 
-
 app.post('/login', async (req, res) => {
     const loginDetails = req.body;
     const users = await userCollection.find({}).toArray();
