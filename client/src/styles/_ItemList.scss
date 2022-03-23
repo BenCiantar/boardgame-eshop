@@ -28,7 +28,11 @@
             }
             #search-button {
                 height: 100%;
-                margin-left: 15px;
+                button {
+                    background-color: transparent;
+                    border: none;
+                    font-size: 18px;
+                }
             }
         }
         #sort-and-filter {
@@ -39,11 +43,16 @@
             align-items: center;
             #sort {
                 height: 100%;
-                margin-left: 15px;
+                margin-left: 5px;
             }
-            #filter {
+            #filter-button {
                 height: 100%;
                 width: 20px;
+                button {
+                    background-color: transparent;
+                    border: none;
+                    font-size: 18px;
+                }
             }
         }
     }

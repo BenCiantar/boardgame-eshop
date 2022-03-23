@@ -71,7 +71,12 @@
 
 #item-list-wrapper #filter-options #search #search-button {
   height: 100%;
-  margin-left: 15px;
+}
+
+#item-list-wrapper #filter-options #search #search-button button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
 }
 
 #item-list-wrapper #filter-options #sort-and-filter {
@@ -93,12 +98,18 @@
 
 #item-list-wrapper #filter-options #sort-and-filter #sort {
   height: 100%;
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
-#item-list-wrapper #filter-options #sort-and-filter #filter {
+#item-list-wrapper #filter-options #sort-and-filter #filter-button {
   height: 100%;
   width: 20px;
+}
+
+#item-list-wrapper #filter-options #sort-and-filter #filter-button button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
 }
 
 #item-list-wrapper #item-list {
