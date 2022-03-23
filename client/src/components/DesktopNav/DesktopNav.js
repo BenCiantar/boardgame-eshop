@@ -12,9 +12,6 @@ function DesktopNav(props) {
                     {rows}
                 </ul>
             </nav>
-            <div id="desktop-search" key="searchBar">
-                Search goes here
-            </div>
         </div>
     );
 }
