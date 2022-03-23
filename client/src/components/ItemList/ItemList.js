@@ -42,6 +42,7 @@ function ItemList() {
         .then((result) => {
             setItems(result);
             console.log(result);
+            e.target.reset();
         })
         .catch((err) => {
             console.error(err);
