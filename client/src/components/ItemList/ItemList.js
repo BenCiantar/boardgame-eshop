@@ -1,9 +1,37 @@
+import { useEffect, useState } from "react";
+import * as config from "../../config";
 import { renderItemList } from "../../scripts/rendering";
 import { FaSistrix } from "react-icons/fa";
 import { GoSettings } from "react-icons/go";
 
-function ItemList(props) {
-    let rows = renderItemList(props);
+function ItemList() {
+
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        fetch(`${config.API_BASE_URL}/items`, {
+            headers: {
+                "content-type": "application/json",
+            },
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((result) => {
+            setItems(result);
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+    }, []);
+
+    let rows = renderItemList(items);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        console.log(e.target.search.value);
+    }
 
     return (
         <div id="item-list-wrapper">
@@ -14,7 +42,7 @@ function ItemList(props) {
                     </div>
                     <div id="sort">
                         <select name="sorting" id="sorting">
-                            <option value="" selected disabled hidden>Sort by:</option>
+                            <option value="" defaultValue disabled hidden>Sort by:</option>
                             <option value="Release-new-old">Release - New to old</option>
                             <option value="Release-old-new">Release - Old to new</option>
                             <option value="Price-high-low">Price - High to low</option>
@@ -22,15 +50,17 @@ function ItemList(props) {
                         </select>
                     </div>
                 </div>
-                <div id="search">
-                    <div id="search-bar">
-                        <label htmlFor="search"></label>
-                        <input type="text" placeholder="Search items" name="search" required />
+                <form onSubmit={handleSubmit}>
+                    <div id="search">
+                        <div id="search-bar">
+                            <label htmlFor="search"></label>
+                            <input type="text" placeholder="Search items" name="search" required />
+                        </div>
+                        <div id="search-button">
+                            <button type="submit" value="submit"><FaSistrix /></button>
+                        </div>
                     </div>
-                    <div id="search-button">
-                        <button type="submit" value="submit"><FaSistrix /></button>
-                    </div>
-                </div>
+                </form>
             </div>
             <ul id="item-list">
                 {rows}
