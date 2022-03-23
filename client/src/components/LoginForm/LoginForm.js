@@ -4,6 +4,9 @@ import * as config from "../../config";
 export default class LoginForm extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            errorStatus: ""
+        }
     }
 
     handleSubmit = (e) => {
@@ -46,7 +49,9 @@ export default class LoginForm extends React.Component {
         this.props.setLoginSuccessful(true);
         })
         .catch((error) => {
-            alert(error);
+            this.setState ({
+                errorStatus: error.message
+            });
         });
     }
 
@@ -63,6 +68,7 @@ export default class LoginForm extends React.Component {
                             <label htmlFor="psw"><b>Password</b></label>
                             <input type="password" placeholder="Enter Password" name="psw" required />
 
+                            <p id="error-alert">{this.state.errorStatus}</p>
                             <button type="submit" value="submit">Login</button>
                         </div>
                     </form>

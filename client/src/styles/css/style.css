@@ -305,6 +305,13 @@
   margin-bottom: 30px;
 }
 
+#login-create-wrapper #error-alert {
+  color: red;
+  width: 100%;
+  margin: 25px 0;
+  text-align: center;
+}
+
 #login-create-wrapper button {
   background-color: #04AA6D;
   color: white;
@@ -538,13 +545,6 @@
   border: 1px solid #ccc;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-#create-account-section #create-account-form #create-account-container #error-alert {
-  color: red;
-  width: 100%;
-  margin: 25px 0;
-  text-align: center;
 }
 
 #create-account-section #create-account-form #create-account-container button {
