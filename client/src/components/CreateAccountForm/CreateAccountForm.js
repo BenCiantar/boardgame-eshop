@@ -4,6 +4,9 @@ import * as config from "../../config";
 export default class CreateAccountForm extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            errorStatus: ""
+        }
     }
 
     handleSubmit = (e) => {
@@ -55,7 +58,9 @@ export default class CreateAccountForm extends React.Component {
         this.props.setAccountCreated(true);
         })
         .catch((error) => {
-            alert(error);
+            this.setState ({
+                errorStatus: error.message
+            });
         });
     }
 
@@ -87,6 +92,7 @@ export default class CreateAccountForm extends React.Component {
                             <label htmlFor="pcode"><b>Postcode</b></label>
                             <input type="number" placeholder="Enter Postcode" name="pcode" required />
 
+                            <p id="error-alert">{this.state.errorStatus}</p>
                             <button type="submit" value="submit">Create Account</button>
                         </div>
                     </form>

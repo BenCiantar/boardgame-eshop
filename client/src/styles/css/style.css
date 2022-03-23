@@ -540,6 +540,13 @@
           box-sizing: border-box;
 }
 
+#create-account-section #create-account-form #create-account-container #error-alert {
+  color: red;
+  width: 100%;
+  margin: 25px 0;
+  text-align: center;
+}
+
 #create-account-section #create-account-form #create-account-container button {
   background-color: #04AA6D;
   color: white;
