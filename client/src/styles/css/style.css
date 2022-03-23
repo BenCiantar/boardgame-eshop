@@ -478,6 +478,12 @@
   margin: 15px 0;
 }
 
+#add-item-section #add-item-form #add-item-container #item-alert {
+  width: 100%;
+  margin: 25px 0;
+  text-align: center;
+}
+
 #add-item-section #add-item-form #add-item-container button {
   background-color: #04AA6D;
   color: white;

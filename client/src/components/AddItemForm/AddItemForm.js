@@ -4,6 +4,9 @@ import * as config from "../../config";
 export default class AddItemForm extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            creationStatus: ""
+        }
     }
 
     handleSubmit = (e) => {
@@ -32,8 +35,18 @@ export default class AddItemForm extends React.Component {
         },
         body: JSON.stringify(newItemDetails),
         })
+        .then(() => {
+            document.getElementById("item-alert").style.color = "green";
+            this.setState ({
+                creationStatus: e.target.title.value + " added to catalogue!"
+            });
+            e.target.reset();
+            })
         .catch((error) => {
-            alert(error);
+            document.getElementById("item-alert").style.color = "red";
+            this.setState ({
+                creationStatus: error
+            });
         });
     }
 
@@ -96,6 +109,7 @@ export default class AddItemForm extends React.Component {
                                     <label htmlFor="release"><h4>Release Date</h4></label>
                                     <input type="date" name="release" required />
 
+                                    <p id="item-alert">{this.state.creationStatus}</p>
                                     <button type="submit" value="submit">Add Item</button>
                                 </div>
                             </form>
