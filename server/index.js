@@ -51,6 +51,20 @@ app.get('/items', async (req, res) => {
     res.json(items);
 });
 
+app.get("/item-search/:query", async (req, res) => {
+    const query = req.params.query;
+    console.log(req.params.query);
+
+    let filter = {$or:[
+        {title: {$regex: `${query}`, $options: 'i'}},
+        {publisher: {$regex: `${query}`, $options: 'i'}}
+      ]};
+
+    const filteredItems = await itemCollection.find(filter).toArray();
+
+    res.json(filteredItems);
+});
+
 app.post('/create-user', async (req, res) => {
     const newUser = req.body;
     const users = await userCollection.find({}).toArray();

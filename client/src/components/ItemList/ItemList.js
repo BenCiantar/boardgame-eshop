@@ -29,8 +29,23 @@ function ItemList() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const searchInput = e.target.search.value;
 
-        console.log(e.target.search.value);
+        fetch(`${config.API_BASE_URL}/item-search/${searchInput}`, {
+        headers: {
+            "content-type": "application/json",
+        },
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((result) => {
+            setItems(result);
+            console.log(result);
+        })
+        .catch((err) => {
+            console.error(err);
+        });
     }
 
     return (

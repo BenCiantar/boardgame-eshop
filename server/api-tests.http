@@ -7,6 +7,10 @@ GET http://localhost:8080/users
 ### Retrieve items
 GET http://localhost:8080/items
 
+
+### Retrieve filtered items
+GET http://localhost:8080/item-search/stone
+
 ### Retrieve orders
 GET http://localhost:8080/orders
 
