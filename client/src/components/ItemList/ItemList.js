@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as config from "../../config";
 import { renderItemList } from "../../scripts/rendering";
+import { sortItems } from "../../scripts/utils";
 import { FaSistrix } from "react-icons/fa";
 import { GoSettings } from "react-icons/go";
 
@@ -40,8 +41,9 @@ function ItemList() {
             return response.json();
         })
         .then((result) => {
-            setItems(result);
-            console.log(result);
+            const sortBy = document.getElementById("sorting").value;
+            const sortedItems = sortItems(result, sortBy)
+            setItems(sortedItems);
             e.target.reset();
         })
         .catch((err) => {
@@ -63,6 +65,8 @@ function ItemList() {
                             <option value="Release-old-new">Release - Old to new</option>
                             <option value="Price-high-low">Price - High to low</option>
                             <option value="Price-low-high">Price - Low to high</option>
+                            <option value="Alpha-a-z">Alphabetical - a to z</option>
+                            <option value="Alpha-z-a">Alphabetical - z to a</option>
                         </select>
                     </div>
                 </div>
