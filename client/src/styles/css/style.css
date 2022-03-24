@@ -11,6 +11,7 @@
 #item-list-wrapper {
   width: 100vw;
   height: auto;
+  min-height: 300px;
   max-width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -129,6 +130,17 @@
 #item-list-wrapper #item-list .grid-item {
   grid-row: span 1;
   grid-column: span 1;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+#item-list-wrapper #item-list .grid-item-wide {
+  grid-row: span 2;
+  grid-column: span 5;
   -ms-grid-column-align: center;
       justify-self: center;
   -ms-flex-item-align: center;

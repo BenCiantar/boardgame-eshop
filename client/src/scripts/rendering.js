@@ -24,6 +24,13 @@ export function renderItemList(items) {
             </div>
         );
     }
+    if (rows.length === 0) {
+        rows.push(
+            <div className="grid-item-wide" key={"item-" + 0}>
+                <h2>No results found, try again.</h2>
+            </div>
+        )
+    }
     return rows;
 }
 
