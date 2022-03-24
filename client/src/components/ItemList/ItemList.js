@@ -19,14 +19,14 @@ function ItemList() {
             return response.json();
         })
         .then((result) => {
-            setItems(result);
+            const sortBy = document.getElementById("sorting").value;
+            const sortedItems = sortItems(result, sortBy)
+            setItems(sortedItems);
         })
         .catch((err) => {
             console.error(err);
         });
     }, []);
-
-    let rows = renderItemList(items);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -51,6 +51,15 @@ function ItemList() {
         });
     }
 
+    const handleChange = (e) => {
+        const sortBy = e.target.value;
+        const sortedItems = sortItems(items, sortBy);
+        setItems(sortedItems);
+    }
+
+    let rows = renderItemList(items);
+    console.log(items);
+
     return (
         <div id="item-list-wrapper">
             <div id="filter-options">
@@ -59,9 +68,8 @@ function ItemList() {
                         <button type="submit" value="submit"><GoSettings /></button>
                     </div>
                     <div id="sort">
-                        <select name="sorting" id="sorting">
-                            <option value="" defaultValue disabled hidden>Sort by:</option>
-                            <option value="Release-new-old">Release - New to old</option>
+                        <select name="sorting" id="sorting" onChange={handleChange}>
+                            <option value="Release-new-old" defaultValue>Release - New to old</option>
                             <option value="Release-old-new">Release - Old to new</option>
                             <option value="Price-high-low">Price - High to low</option>
                             <option value="Price-low-high">Price - Low to high</option>
