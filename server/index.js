@@ -58,7 +58,7 @@ app.get("/item-search/:query", async (req, res) => {
     let filter = {$or:[
         {title: {$regex: `${query}`, $options: 'i'}},
         {publisher: {$regex: `${query}`, $options: 'i'}}
-      ]};
+    ]};
 
     const filteredItems = await itemCollection.find(filter).toArray();
 
