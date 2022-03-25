@@ -5,7 +5,7 @@ import LoginForm from "./LoginForm";
 import Orders from "./Orders";
 import AddItemForm from "./AddItemForm";
 import CreateAccountForm from "./CreateAccountForm";
-import Item from "./Item";
 import ItemList from "./ItemList";
+import Cart from "./Cart";
 
-export { Header, DesktopNav, LoginForm, Orders, AddItemForm, CreateAccountForm, Footer, Item, ItemList };
+export { Header, DesktopNav, LoginForm, Orders, AddItemForm, CreateAccountForm, Footer, ItemList, Cart };

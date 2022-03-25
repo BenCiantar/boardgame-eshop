@@ -78,3 +78,65 @@ export function renderDesktopMenu(props) {
 export function logout(props) {
     props.setUser({"isLoggedIn": false, "isStaff": false});
 }
+
+//--------------- Cart
+
+export function renderCartItems(cart) {
+    const rows = [];
+    let totalPrice = 0;
+    for (let i = 0; i < cart.length; i++) {
+        totalPrice += cart[i].quantity * cart[i].price
+        rows.push(
+            <>
+            <div className="cart-item">
+                <div className="cart-image">
+                </div>
+                <div className="cart-product">
+                    <h4>Product</h4>
+                </div>
+                <div className="cart-quantity">
+                    <h4>Qty</h4>
+                </div>
+                <div className="cart-price">
+                    <h4>Price</h4>
+                </div>
+            </div>
+            <div className="cart-item" key={"cart-" + i}>
+                <div className="cart-image">
+                    <img src={cart[i].image} alt={cart[i].title} />
+                </div>
+                <div className="cart-product">
+                    <p>{cart[i].title}</p>
+                </div>
+                <div className="cart-quantity">
+                    <p>{cart[i].quantity}</p>
+                </div>
+                <div className="cart-price">
+                    <p>{cart[i].quantity * cart[i].price}kr</p>
+                </div>
+            </div>
+            <div className="cart-item">
+                <div className="cart-image">
+                </div>
+                <div className="cart-product">
+                    <h4>Total:</h4>
+                </div>
+                <div className="cart-quantity">
+                </div>
+                <div className="cart-price">
+                    <p>{ totalPrice }kr</p>
+                </div>
+            </div>
+            </>
+        );
+    }
+    if (rows.length === 0) {
+        rows.push(
+            <div id="cart-empty">
+                <h4>Cart Empty</h4>
+            </div>
+        )
+    }
+    return rows;
+}
+

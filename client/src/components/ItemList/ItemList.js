@@ -58,7 +58,6 @@ function ItemList() {
     }
 
     let rows = renderItemList(items);
-    console.log(items);
 
     return (
         <div id="item-list-wrapper">

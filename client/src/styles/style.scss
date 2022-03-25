@@ -1,5 +1,5 @@
 @import 'variables', 'fonts';
-@import 'ItemList', 'Header', 'LoginCreate', 'LoginForm', 'Orders', 'AddItemForm', 'CreateAccountForm', 'Warehouse', 'DesktopNav', 'Footer';
+@import 'ItemList', 'Header', 'LoginCreate', 'LoginForm', 'Orders', 'AddItemForm', 'CreateAccountForm', 'Warehouse', 'DesktopNav', 'Footer', 'Cart';
 
 * {
     margin: 0; 
@@ -19,5 +19,9 @@ main {
     h1 {
         font-size: $banner-text;
     }
+}
+
+.hidden {
+    display: none;
 }
 

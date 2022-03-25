@@ -1,10 +1,11 @@
-import { Header, DesktopNav, Footer, ItemList } from "../../components";
+import { Header, DesktopNav, Footer, ItemList, Cart } from "../../components";
 import React from 'react'
 
 
 function Home(props) {
     return (
         <>
+            <Cart {...props}/>
             <Header />
             <DesktopNav {...props}/>
             <main>
