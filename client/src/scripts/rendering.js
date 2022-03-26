@@ -86,22 +86,26 @@ function addToCart (item, props) {
     //Copy existing cart in new variable - use ... to spread so that the state will update
     const newCart = [...props.cart];
 
+    let itemExists = false;
+
     //Check if item already exists in cart
+    for (let product of newCart) {
+        if (product.title == item.title){
+            itemExists = true;
+            product.quantity += 1;
+        }
+    }
     //If not, add a new item with qty 1
     
-    
-    newCart.push({
-        "image": item.image,
-        "title": item.title,
-        "quantity": 1,
-        "price": item.price
-        
-    })
-    
-
-    //If item exists, just add 1 to the qty
-
-
+    if (!itemExists) {
+        newCart.push({
+            "image": item.image,
+            "title": item.title,
+            "quantity": 1,
+            "price": item.price
+            
+        })
+    }
 
     //Update the cart state with the new cart
     props.setCart(newCart);
