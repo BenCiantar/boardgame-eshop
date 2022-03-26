@@ -8,7 +8,9 @@ import { Home, About, LoginCreate, Warehouse, BadURL404 } from "./pages";
 
 function App() {
     const [user, setUser] = useState({"isLoggedIn": false, "isStaff": false});
-    const [cart, setCart] = useState({"cart": []});
+    const [cart, setCart] = useState([]);
+
+    console.log(cart);
 
     return (
         <div className="App">

@@ -5,7 +5,7 @@ import { sortItems } from "../../scripts/utils";
 import { FaSistrix } from "react-icons/fa";
 import { GoSettings } from "react-icons/go";
 
-function ItemList() {
+function ItemList(props) {
 
     const [items, setItems] = useState([]);
 
@@ -57,7 +57,7 @@ function ItemList() {
         setItems(sortedItems);
     }
 
-    let rows = renderItemList(items);
+    let rows = renderItemList(items, props);
 
     return (
         <div id="item-list-wrapper">
