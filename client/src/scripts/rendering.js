@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { BiPlus, BiMinus } from "react-icons/bi";
 
 
 //-----------Item List
@@ -163,7 +164,7 @@ export function renderCartItems(cart) {
                         <p>{cart[i].title}</p>
                     </div>
                     <div className="cart-quantity">
-                        <p>{cart[i].quantity}</p>
+                        <button><BiMinus /></button><p>{cart[i].quantity}</p><button><BiPlus /></button>
                     </div>
                     <div className="cart-price">
                         <p>{cart[i].quantity * cart[i].price}kr</p>
@@ -183,18 +184,11 @@ export function renderCartItems(cart) {
         <div className="cart-quantity">
         </div>
         <div className="cart-price">
-            <p>{ totalPrice }kr</p>
+            <h4>{ totalPrice }kr</h4>
         </div>
     </div>
     );
 
-    if (rows.length === 0) {
-        rows.push(
-            <div id="cart-empty">
-                <h4>Cart Empty</h4>
-            </div>
-        )
-    }
     return rows;
 }
 

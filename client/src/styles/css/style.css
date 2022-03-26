@@ -919,16 +919,27 @@
 #cart {
   height: 60vh;
   width: 20vw;
-  min-width: 200px;
+  min-width: 270px;
   background-color: #1e1e1e;
   color: #FFFFFF;
   position: absolute;
   top: 130px;
   right: 10px;
+  padding: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
   border-style: solid;
   border-width: 0 1px 1px 1px;
+}
+
+#cart p {
+  color: white;
+  font-size: 0.625rem;
+}
+
+#cart h4 {
+  font-size: 0.75rem;
+  font-weight: bold;
 }
 
 #cart #cart-empty {
@@ -941,6 +952,8 @@
 #cart .cart-item {
   width: 100%;
   height: 20px;
+  margin-top: 20px;
+  padding: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -954,6 +967,74 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#cart .cart-item .cart-image {
+  width: 15%;
+}
+
+#cart .cart-item .cart-image img {
+  width: 25px;
+  height: auto;
+}
+
+#cart .cart-item .cart-product {
+  width: 55%;
+}
+
+#cart .cart-item .cart-quantity {
+  width: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cart .cart-item .cart-quantity p, #cart .cart-item .cart-quantity h4 {
+  text-align: center;
+}
+
+#cart .cart-item .cart-quantity button {
+  background-color: #1e1e1e;
+  border: none;
+  width: 10px;
+  color: white;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cart .cart-item .cart-quantity button svg {
+  height: 100%;
+  color: white;
+}
+
+#cart .cart-item .cart-price {
+  width: 15%;
+}
+
+#cart .cart-item .cart-price p, #cart .cart-item .cart-price h4 {
+  text-align: right;
 }
 
 * {
