@@ -95,8 +95,8 @@ function addToCart (item, props) {
             product.quantity += 1;
         }
     }
-    //If not, add a new item with qty 1
-    
+
+    //If item doesn't exist, add a new item with qty 1
     if (!itemExists) {
         newCart.push({
             "image": item.image,
@@ -111,32 +111,45 @@ function addToCart (item, props) {
     props.setCart(newCart);
 
 
+    //Check if user signed in - if they are
     //Update the user document with the new cart in MongoDB
+
+    //If they aren't
+    //update the local storage with the guest cart
 
 }
 
-function removeFromCart () {
-    
+function removeFromCart (item, props) {
     //Copy existing cart in new variable - use ... to spread so that the state will update
+    const newCart = [...props.cart];
 
-    //Loop through cart array to find the matching item
-    //Reduce the item qty by 1
+    //Check if item already exists in cart
+    for (let i = 0; i < newCart.length; i++) {
+        if (newCart[i].title == item.title){
+            newCart[i].quantity -= 1;
 
-    //Check if the item qty < 1 - if it is, remove the item from the cart entirely
+            if (newCart[i].quantity < 1) {
+                newCart.splice(i, 1);
+            }
+        }
+    }
 
     //Update the cart state with the new cart
+    props.setCart(newCart);
+
     
     //Check if user signed in - if they are
     //Update the user document with the new cart in MongoDB
 
     //If they aren't
-    //pdate the local storage with the guest cart
+    //update the local storage with the guest cart
 }
 
 
 
-export function renderCartItems(cart) {
+export function renderCartItems(props) {
     const rows = [];
+    const cart = props.cart;
     let totalPrice = 0;
 
     rows.push(
@@ -168,7 +181,7 @@ export function renderCartItems(cart) {
                         <p>{cart[i].title}</p>
                     </div>
                     <div className="cart-quantity">
-                        <button><BiMinus /></button><p>{cart[i].quantity}</p><button><BiPlus /></button>
+                        <button onClick={() => removeFromCart(cart[i], props)}><BiMinus /></button><p>{cart[i].quantity}</p><button onClick={() => addToCart(cart[i], props)}><BiPlus /></button>
                     </div>
                     <div className="cart-price">
                         <p>{cart[i].quantity * cart[i].price}kr</p>
