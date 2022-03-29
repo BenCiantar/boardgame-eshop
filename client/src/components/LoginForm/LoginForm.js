@@ -35,6 +35,7 @@ export default class LoginForm extends React.Component {
         .then(data => {
         data.isLoggedIn = true;
         this.props.setUser({
+            "id": data._id,
             "firstName": data.firstName,
             "lastName": data.lastName,
             "email": data.email,
@@ -42,10 +43,11 @@ export default class LoginForm extends React.Component {
             "city": data.city,
             "postcode": data.postcode,
             "isStaff": data.isStaff,
-            "cart": data.cart, //Change to inherit guest cart if enough time
+            "cart": data.cart, //Change to inherit guest cart
             "isLoggedIn": true 
         });
-        console.log('Login Successful:', this.props.user);
+        this.props.setCart( data.cart )
+        console.log('Login Successful:', this.props);
         this.props.setLoginSuccessful(true);
         })
         .catch((error) => {

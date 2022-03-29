@@ -87,3 +87,24 @@ Content-Type: application/json
 {
     "password": "iHATEpaleontologists"
 }
+
+### Update user cart
+PATCH http://localhost:8080/update-user-cart/abc
+Content-Type: application/json
+
+{
+  [
+    {
+      image: 'https://www.dragonslair.se/images/53575/product',
+      title: 'Wingspan',
+      quantity: 1,
+      price: 697
+    }
+  ]
+}
+
+
+### Search for a user
+GET http://localhost:8080/search-user/"abc"
+Content-Type: application/json
+

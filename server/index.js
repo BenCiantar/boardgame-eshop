@@ -44,11 +44,19 @@ const requestLogger = (request, response, next) => {
 
 app.use(requestLogger);
 
-//Define methods
+//Item Methods
 app.get('/items', async (req, res) => {
     const items = await itemCollection.find({}).toArray();
 
     res.json(items);
+});
+
+app.post('/add-item', async (req, res) => {
+    const newItem = req.body;
+
+    await itemCollection.insertOne(newItem);
+
+    res.status(200).end();
 });
 
 app.get("/item-search/:query", async (req, res) => {
@@ -65,6 +73,7 @@ app.get("/item-search/:query", async (req, res) => {
     res.json(filteredItems);
 });
 
+//User Methods
 app.post('/create-user', async (req, res) => {
     const newUser = req.body;
     const users = await userCollection.find({}).toArray();
@@ -83,14 +92,6 @@ app.post('/create-user', async (req, res) => {
         res.statusMessage = "This email is already being used for an active account!";
         res.status(400).end();
     }
-});
-
-app.post('/add-item', async (req, res) => {
-    const newItem = req.body;
-
-    await itemCollection.insertOne(newItem);
-
-    res.status(200).end();
 });
 
 app.post('/login', async (req, res) => {
@@ -130,11 +131,20 @@ app.put('/user/:userId', async (req, res) => {
     res.status(200).end();
 });
 
-app.patch('/user/:userId', async (req, res) => {
-    const selectedUserId = req.params.userId;
-    await userCollection.updateOne({_id: selectedUserId}, {$set: req.body});
+app.patch('/update-user-cart/:userEmail', async (req, res) => {
+    const userEmail = req.params.userEmail;
+    console.log(req.params)
+    console.log(userEmail)
+    await userCollection.updateOne({ "email": userEmail }, { $set: req.body });
 
     res.status(200).end();
+});
+
+app.get("/search-user/:userId", async (req, res) => {
+    const userId = req.params.userId
+    const user = await itemCollection.find({ _id: "abc" }).toArray();
+
+    console.log(user);
 });
 
 

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { BiPlus, BiMinus } from "react-icons/bi";
+import * as config from "../config";
 
 
 //-----------Item List
@@ -112,6 +113,9 @@ function addToCart (item, props) {
 
         //Update the cart state with the new cart
         props.setCart(newCart);
+
+        //Update the user DB document with the new cart
+        updateUserCartDB(newCart, props.user.email);
     } else {
         alert("You must be logged in to add an item to the cart");
 
@@ -137,14 +141,24 @@ function removeFromCart (item, props) {
     //Update the cart state with the new cart
     props.setCart(newCart);
 
-    
-    //Check if user signed in - if they are
-    //Update the user document with the new cart in MongoDB
-
-    //If they aren't
-    //update the local storage with the guest cart
+    //Update the user DB document with the new cart
+    updateUserCartDB(newCart, props.user.email);
 }
 
+function updateUserCartDB(cart, userEmail) {
+    fetch(`${config.API_BASE_URL}/update-user-cart/${userEmail}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+            cart,
+        }),
+        headers: {
+            "content-type": "application/json",
+        },
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+}
 
 
 export function renderCartItems(props) {
@@ -172,7 +186,6 @@ export function renderCartItems(props) {
         totalPrice += cart[i].quantity * cart[i].price
         rows.push(
             <>
-
                 <div className="cart-item" key={"cart-" + i}>
                     <div className="cart-image">
                         <img src={cart[i].image} alt={cart[i].title} />
