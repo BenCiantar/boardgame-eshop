@@ -78,45 +78,45 @@ export function renderDesktopMenu(props) {
 
 export function logout(props) {
     props.setUser({"isLoggedIn": false, "isStaff": false});
+    props.setCart([]);
 }
 
 //--------------- Cart
 
 function addToCart (item, props) {
-    //Copy existing cart in new variable - use ... to spread so that the state will update
-    const newCart = [...props.cart];
+    //Check the user is logged in
+    if (props.user.isLoggedIn) {
+        //Copy existing cart in new variable - use ... to spread so that the state will update
+        const newCart = [...props.cart];
 
-    let itemExists = false;
+        let itemExists = false;
 
-    //Check if item already exists in cart
-    for (let product of newCart) {
-        if (product.title == item.title){
-            itemExists = true;
-            product.quantity += 1;
+        //Check if item already exists in cart
+        for (let product of newCart) {
+            if (product.title == item.title){
+                itemExists = true;
+                product.quantity += 1;
+            }
         }
+
+        //If item doesn't exist, add a new item with qty 1
+        if (!itemExists) {
+            newCart.push({
+                "image": item.image,
+                "title": item.title,
+                "quantity": 1,
+                "price": item.price
+                
+            })
+        }
+
+        //Update the cart state with the new cart
+        props.setCart(newCart);
+    } else {
+        alert("You must be logged in to add an item to the cart");
+
+        //Add local storage functioanlity here later
     }
-
-    //If item doesn't exist, add a new item with qty 1
-    if (!itemExists) {
-        newCart.push({
-            "image": item.image,
-            "title": item.title,
-            "quantity": 1,
-            "price": item.price
-            
-        })
-    }
-
-    //Update the cart state with the new cart
-    props.setCart(newCart);
-
-
-    //Check if user signed in - if they are
-    //Update the user document with the new cart in MongoDB
-
-    //If they aren't
-    //update the local storage with the guest cart
-
 }
 
 function removeFromCart (item, props) {
