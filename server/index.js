@@ -44,7 +44,7 @@ const requestLogger = (request, response, next) => {
 
 app.use(requestLogger);
 
-//Item Methods
+//Methods
 app.get('/items', async (req, res) => {
     const items = await itemCollection.find({}).toArray();
 
@@ -115,22 +115,7 @@ app.post('/login', async (req, res) => {
     }
 });
 
-
-
-app.delete('/users/:userId', async (req, res) => {
-    const selectedUserId = req.params.userId;
-    await userCollection.deleteOne({_id: selectedUserId});
-
-    res.status(200).end();
-});
-
-app.put('/user/:userId', async (req, res) => {
-    const selectedUserId = req.params.userId;
-    await userCollection.replaceOne({_id: selectedUserId}, req.body);
-
-    res.status(200).end();
-});
-
+//Save the newest version of the user cart to the DB with every change
 app.patch('/update-user-cart/:userEmail', async (req, res) => {
     const userEmail = req.params.userEmail;
     console.log(req.params)
@@ -140,15 +125,29 @@ app.patch('/update-user-cart/:userEmail', async (req, res) => {
     res.status(200).end();
 });
 
-app.get("/search-user/:userId", async (req, res) => {
-    const userId = req.params.userId
-    const user = await itemCollection.find({ _id: "abc" }).toArray();
-
-    console.log(user);
-});
+//Create an order from the current cart
 
 
 // Keep server running
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}.`);
 });
+
+
+
+
+
+
+// app.delete('/users/:userId', async (req, res) => {
+//     const selectedUserId = req.params.userId;
+//     await userCollection.deleteOne({_id: selectedUserId});
+
+//     res.status(200).end();
+// });
+
+// app.put('/user/:userId', async (req, res) => {
+//     const selectedUserId = req.params.userId;
+//     await userCollection.replaceOne({_id: selectedUserId}, req.body);
+
+//     res.status(200).end();
+// });
