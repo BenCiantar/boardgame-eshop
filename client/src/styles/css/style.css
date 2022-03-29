@@ -925,7 +925,7 @@
   position: absolute;
   top: 130px;
   right: 10px;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   overflow-y: scroll;
   overflow-x: hidden;
   border-style: solid;
@@ -940,6 +940,13 @@
 #cart h4 {
   font-size: 0.75rem;
   font-weight: bold;
+  text-align: left;
+}
+
+#cart #footerh4 {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: right;
 }
 
 #cart #cart-empty {
@@ -976,6 +983,36 @@
 #cart .cart-item .cart-image img {
   width: 25px;
   height: auto;
+}
+
+#cart .cart-item .cart-image button {
+  height: 20px;
+  width: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFFFFF;
+  font-size: 0.625rem;
+  border-radius: 2px;
+  border: none;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.25);
+  border-left: 1.5px solid rgba(0, 0, 0, 0.25);
+  background-color: #3a6;
+}
+
+#cart .cart-item .cart-image button:hover {
+  border-bottom: 2.5px solid rgba(0, 0, 0, 0.25);
+  border-left: 2.5px solid rgba(0, 0, 0, 0.25);
 }
 
 #cart .cart-item .cart-product {
@@ -1035,6 +1072,7 @@
 
 #cart .cart-item .cart-price p, #cart .cart-item .cart-price h4 {
   text-align: right;
+  padding-right: 5px;
 }
 
 * {

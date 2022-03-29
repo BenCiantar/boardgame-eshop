@@ -207,9 +207,10 @@ export function renderCartItems(props) {
     rows.push(
     <div className="cart-item" key={"cart-foot"}>
         <div className="cart-image">
+            <button onClick={() => createOrder(cart, props)}>Order</button>
         </div>
         <div className="cart-product">
-            <h4>Total:</h4>
+            <h4 id="footerh4">Total:</h4>
         </div>
         <div className="cart-quantity">
         </div>
@@ -226,7 +227,11 @@ export function renderCartItems(props) {
 
 //----------------Orders
 
-function placeOrder () {
+function createOrder () {
+    
+
+
+
     //Check if user is signed in - if not alert that they must first sign in
     //Copy existing cart to user cart on sign in, empty local storage cart
 
