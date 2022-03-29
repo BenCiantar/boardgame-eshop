@@ -73,7 +73,6 @@ app.get("/item-search/:query", async (req, res) => {
     res.json(filteredItems);
 });
 
-//User Methods
 app.post('/create-user', async (req, res) => {
     const newUser = req.body;
     const users = await userCollection.find({}).toArray();
@@ -126,7 +125,13 @@ app.patch('/update-user-cart/:userEmail', async (req, res) => {
 });
 
 //Create an order from the current cart
+app.post('/create-order', async (req, res) => {
+    const newOrder = req.body;
 
+    await orderCollection.insertOne(newOrder);
+
+    res.status(200).end();
+});
 
 // Keep server running
 app.listen(PORT, () => {
