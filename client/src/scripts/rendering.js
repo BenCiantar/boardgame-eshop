@@ -227,8 +227,40 @@ export function renderCartItems(props) {
 
 //----------------Orders
 
-function createOrder () {
-    
+function createOrder (cart, props) {
+
+    let totalPrice = 0;
+    let totalQuantity = 0;
+
+    for (let item of cart) {
+        totalQuantity += item.quantity;
+        totalPrice += item.price * item.quantity;
+    }
+
+    const newOrderDetails = {
+        "email": props.user.email,
+        "status": "Paid",
+        "totalQuantity": totalQuantity,
+        "totalPrice": totalPrice,
+        "itemList": cart
+    }
+
+    fetch(`${config.API_BASE_URL}/create-order`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newOrderDetails),
+    })
+    .then(() => {
+    props.setCart({
+        "cart": []
+    });
+    alert('Your order was placed successfully!');
+    })
+    .catch((error) => {
+        console.log(error);
+    });
 
 
 
