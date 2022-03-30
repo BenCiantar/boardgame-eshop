@@ -244,6 +244,9 @@ function createOrder (cart, props) {
         "status": "Paid",
         "totalQuantity": totalQuantity,
         "totalPrice": totalPrice,
+        "address": props.user.address,
+        "city": props.user.city,
+        "postcode": props.user.postcode,
         "itemList": cart,
         "timestamp": new Date()
     }
