@@ -271,10 +271,27 @@ function createOrder (cart, props) {
     });
 }
 
-export function renderOrderList(orders) {
+export function renderOrderList(orders, isStaff) {
     let rows = [];
+
     for (let i = 0; i < orders.length; i++) {
         let date = formatDate(orders[i].timestamp);
+        let status = [];
+        if (isStaff && orders[i].status != "Delivered") {
+            status.push( 
+                        <>
+                            <select id={orders[i]._id+"-select"}>
+                                <option value="Paid">Paid</option>
+                                <option value="Packaged">Packaged</option>
+                                <option value="Shipped">Shipped</option>
+                                <option value="Delivered">Delivered</option>
+                            </select>
+                            <button onClick={() => updateOrderStatus(orders[i])}>Update</button>
+                        </>
+            )
+        } else {
+            status = <p>{orders[i].status}</p>;
+        }    
         rows.push(
             <div className="collapsible-order-content">
                 <div className="date-col">
@@ -290,22 +307,16 @@ export function renderOrderList(orders) {
                     <p>{orders[i].address}, {orders[i].city}, {orders[i].postcode}</p>
                 </div>
                 <div className="status-col">
-                    <p>{orders[i].status}</p>
+                    {status}
                 </div>
             </div>
         );
     }
 
-
-
     return rows;
+}
 
-    //Retrieve a list of orders from the DB where the userID matches the current logged in user ID
-    //Sort into two arrays based on whether delivered attribute == true
-
-    //Render one list of active orders (not delivered)
-
-    //Render one list of past orders
-
-    //Implement sort by function - optional
+function updateOrderStatus(order){
+    const newStatus = document.getElementById(`${order._id}-select`).value;
+    console.log(newStatus);
 }

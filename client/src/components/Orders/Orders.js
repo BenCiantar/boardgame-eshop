@@ -6,7 +6,7 @@ import { renderOrderList } from "../../scripts/rendering";
 function Orders(props) {
     const [orders, setOrders] = useState([]);
 
-    const endpoint = props.isLoggedIn ? "/all-orders" : `/user-orders/${props.userEmail}`;
+    const endpoint = props.isStaff ? "/all-orders" : `/user-orders/${props.userEmail}`;
 
     //Retrieve all orders from the DB
     useEffect(() => {
@@ -43,7 +43,7 @@ function Orders(props) {
         }
     }
 
-    const rows = renderOrderList(filteredOrders);
+    const rows = renderOrderList(filteredOrders, props.isStaff);
 
     return (
         <div className="warehouse-section">

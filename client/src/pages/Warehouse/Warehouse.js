@@ -1,6 +1,5 @@
 import { Header, DesktopNav, AddItemForm, Orders, Footer, Cart } from "../../components";
 import React from 'react'
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Warehouse(props) {
@@ -12,8 +11,9 @@ function Warehouse(props) {
                 <DesktopNav {...props} />
                 <main>
                     <div id="warehouse-wrapper">
-                        <Orders type="Active" isLoggedIn={true} />
-                        <Orders type="Past" isLoggedIn={true} userEmail={props.user.email} />
+                        <Orders type="Active" isStaff={true} />
+                        <Orders type="Past" isStaff={true} /> 
+                        {/* userEmail={props.user.email} PASS FOR NON STAFF*/}
                         <AddItemForm />
                     </div>
                 </main>

@@ -831,7 +831,32 @@
 
 #warehouse-wrapper .warehouse-section div .status-col {
   width: 20%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: left;
+}
+
+#warehouse-wrapper .warehouse-section div .status-col button {
+  width: 35%;
+  height: 60%;
+  padding: 0;
+}
+
+#warehouse-wrapper .warehouse-section div .status-col select {
+  width: 40%;
+  height: 40%;
 }
 
 #warehouse-wrapper .warehouse-section div .collapsible-item-content {
