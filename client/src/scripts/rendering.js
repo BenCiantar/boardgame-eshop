@@ -172,13 +172,13 @@ export function renderCartItems(props) {
         <div className="cart-image">
         </div>
         <div className="cart-product">
-            <h4>Product</h4>
+            <p>Product</p>
         </div>
         <div className="cart-quantity">
-            <h4>Qty</h4>
+            <p>Qty</p>
         </div>
         <div className="cart-price">
-            <h4>Price</h4>
+            <p>Price</p>
         </div>
     </div>
     );
@@ -211,12 +211,12 @@ export function renderCartItems(props) {
             <button onClick={() => createOrder(cart, props)}>Order</button>
         </div>
         <div className="cart-product">
-            <h4 id="footerh4">Total:</h4>
+            <p id="footerp">Total:</p>
         </div>
         <div className="cart-quantity">
         </div>
         <div className="cart-price">
-            <h4>{ totalPrice }kr</h4>
+            <p>{ totalPrice }kr</p>
         </div>
     </div>
     );
@@ -282,7 +282,21 @@ export function renderOrderList(orders) {
     for (let i = 0; i < orders.length; i++) {
         rows.push(
             <div className="collapsible-order-content">
-                Content 1 goes here
+                <div className="date-col">
+                    <p>{orders[i].timestamp}</p>
+                </div>
+                <div className="id-col">
+                    <p>{orders[i]._id}</p>
+                </div>
+                <div className="total-col">
+                    <p>{orders[i].totalPrice}</p>
+                </div>
+                <div className="address-col">
+                    {/* <p>{orders[i].address}, {orders[i].city}, {orders[i].postcode}</p> */}
+                </div>
+                <div className="status-col">
+                    <p>{orders[i].status}</p>
+                </div>
             </div>
         );
     }
