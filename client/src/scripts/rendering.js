@@ -146,6 +146,7 @@ function removeFromCart (item, props) {
 }
 
 function updateUserCartDB(cart, userEmail) {
+    console.log("running", cart)
     fetch(`${config.API_BASE_URL}/update-user-cart/${userEmail}`, {
         method: 'PATCH',
         body: JSON.stringify({
@@ -242,7 +243,8 @@ function createOrder (cart, props) {
         "status": "Paid",
         "totalQuantity": totalQuantity,
         "totalPrice": totalPrice,
-        "itemList": cart
+        "itemList": cart,
+        "timestamp": new Date()
     }
 
     fetch(`${config.API_BASE_URL}/create-order`, {
@@ -253,16 +255,16 @@ function createOrder (cart, props) {
     body: JSON.stringify(newOrderDetails),
     })
     .then(() => {
-    props.setCart({
-        "cart": []
-    });
+    props.setCart([]);
+    console.log(props.cart);
     alert('Your order was placed successfully!');
+    })
+    .then(() => {
+    updateUserCartDB([], props.user.email);
     })
     .catch((error) => {
         console.log(error);
     });
-
-
 
     //Check if user is signed in - if not alert that they must first sign in
     //Copy existing cart to user cart on sign in, empty local storage cart
@@ -289,37 +291,12 @@ export function renderOrderList(orders) {
 
     return rows;
 
-
-
-
-
-
-
-
-
-
-
     //Retrieve a list of orders from the DB where the userID matches the current logged in user ID
     //Sort into two arrays based on whether delivered attribute == true
 
     //Render one list of active orders (not delivered)
 
     //Render one list of past orders
-
-    //Implement sort by function - optional
-}
-
-function renderAllOrders() {
-
-    //Retrieve a list of all orders from the DB
-
-    //Sort into two arrays based on whether delivered attribute == true
-
-    //Render one list of active orders (not delivered)
-
-    //Render one list of past orders
-
-    //Add functionality to check packaged, shipped, delievered and update the order
 
     //Implement sort by function - optional
 }

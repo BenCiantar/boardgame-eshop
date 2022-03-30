@@ -6,7 +6,6 @@ import { FaSistrix } from "react-icons/fa";
 import { GoSettings } from "react-icons/go";
 
 function ItemList(props) {
-
     const [items, setItems] = useState([]);
 
     useEffect(() => {
