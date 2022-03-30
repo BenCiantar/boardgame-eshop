@@ -275,7 +275,30 @@ function createOrder (cart, props) {
     //Insert the order document into the orders MongoDB collection
 }
 
-function renderUserOrders() {
+export function renderOrderList(orders) {
+    let rows = [];
+    for (let i = 0; i < orders.length; i++) {
+        rows.push(
+            <div className="collapsible-order-content">
+                Content 1 goes here
+            </div>
+        );
+    }
+
+
+
+    return rows;
+
+
+
+
+
+
+
+
+
+
+
     //Retrieve a list of orders from the DB where the userID matches the current logged in user ID
     //Sort into two arrays based on whether delivered attribute == true
 
@@ -287,6 +310,7 @@ function renderUserOrders() {
 }
 
 function renderAllOrders() {
+
     //Retrieve a list of all orders from the DB
 
     //Sort into two arrays based on whether delivered attribute == true

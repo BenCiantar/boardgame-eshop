@@ -61,7 +61,6 @@ app.post('/add-item', async (req, res) => {
 
 app.get("/item-search/:query", async (req, res) => {
     const query = req.params.query;
-    console.log(req.params.query);
 
     let filter = {$or:[
         {title: {$regex: `${query}`, $options: 'i'}},
@@ -131,6 +130,22 @@ app.post('/create-order', async (req, res) => {
     await orderCollection.insertOne(newOrder);
 
     res.status(200).end();
+});
+
+//Get all orders
+app.get('/all-orders', async (req, res) => {
+    const orders = await orderCollection.find({}).toArray();
+
+    res.json(orders);
+});
+
+//Get orders for one user
+app.get("/user-orders/:query", async (req, res) => {
+    const query = req.params.query;
+
+    const filteredItems = await itemCollection.find({email: query}).toArray();
+
+    res.json(filteredItems);
 });
 
 // Keep server running

@@ -11,8 +11,8 @@ function Warehouse(props) {
                 <DesktopNav {...props}/>
                 <main>
                     <div id="warehouse-wrapper">
-                        <Orders type="staffActive"/>
-                        <Orders type="staffPast"/>
+                        <Orders type="Active" isLoggedIn={true} />
+                        <Orders type="Past" isLoggedIn={true} userEmail={props.user.email} />
                         <AddItemForm />
                     </div>
                 </main>
