@@ -250,6 +250,7 @@ export function renderOrderList(orders, isStaff) {
             status.push( 
                         <>
                             <select id={orders[i].orderNo+"-select"}>
+                                <option hidden value="">{orders[i].status}</option>
                                 <option value="Paid">Paid</option>
                                 <option value="Packaged">Packaged</option>
                                 <option value="Shipped">Shipped</option>

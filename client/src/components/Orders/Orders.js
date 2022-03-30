@@ -43,6 +43,7 @@ function Orders(props) {
         }
     }
 
+    console.log(orders);
     const rows = renderOrderList(filteredOrders, props.isStaff);
 
     return (

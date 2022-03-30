@@ -138,10 +138,11 @@ app.get('/all-orders', async (req, res) => {
 });
 
 //Get orders for one user
-app.get("/user-orders/:query", async (req, res) => {
-    const query = req.params.query;
+app.get("/user-orders/:email", async (req, res) => {
+    const email = req.params.email;
+    console.log(email);
 
-    const filteredItems = await itemCollection.find({email: query}).toArray();
+    const filteredItems = await orderCollection.find({email: email}).toArray();
 
     res.json(filteredItems);
 });
