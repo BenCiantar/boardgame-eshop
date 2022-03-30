@@ -696,7 +696,7 @@
   width: 100vw;
   height: auto;
   max-width: 100%;
-  min-height: 300px;
+  min-height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -704,8 +704,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -738,7 +739,7 @@
 }
 
 #warehouse-wrapper .warehouse-section {
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 #warehouse-wrapper .warehouse-section .collapsible-header {
@@ -757,15 +758,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #c04242;
+  background-color: #414141;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-#warehouse-wrapper .warehouse-section .collapsible {
+#warehouse-wrapper .warehouse-section div {
   width: 80vw;
   height: auto;
 }
 
-#warehouse-wrapper .warehouse-section .collapsible .collapsible-order-content {
+#warehouse-wrapper .warehouse-section div .collapsible-order-content {
   width: 100%;
   height: 80px;
   display: -webkit-box;
@@ -783,7 +787,7 @@
           align-items: center;
 }
 
-#warehouse-wrapper .warehouse-section .collapsible .collapsible-item-content {
+#warehouse-wrapper .warehouse-section div .collapsible-item-content {
   width: 100%;
   height: auto;
   display: -webkit-box;
@@ -799,10 +803,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-#warehouse-wrapper .warehouse-section .collapsible-invisible {
-  display: none;
 }
 
 #desktop-nav {

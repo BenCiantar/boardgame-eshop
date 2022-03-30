@@ -2,10 +2,10 @@
     width: 100vw;
     height: auto;
     max-width: 100%;
-    min-height: 300px;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     h1{
         font-size: $very-large-text;
@@ -30,7 +30,7 @@
         opacity: 0.8;
     }
     .warehouse-section {
-        margin: 20px 0;
+        margin: 15px 0;
         .collapsible-header {
             width: 80vw;
             height: 80px;
@@ -38,9 +38,12 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            background-color: rgb(192, 66, 66);
+            background-color: $nav-color;
+            color: $white;
+            font-weight: bold;
+            cursor: pointer;
         }
-        .collapsible {
+        div {
             width: 80vw;
             height: auto;
             .collapsible-order-content {
@@ -59,9 +62,6 @@
                 justify-content: center;
                 align-items: center;
             }
-        }
-        .collapsible-invisible {
-            display: none;
         }
     }
 }

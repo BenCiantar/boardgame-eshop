@@ -1,5 +1,7 @@
 import React from "react";
 import * as config from "../../config";
+import { toggleHidden } from "../../scripts/utils";
+
 
 export default class AddItemForm extends React.Component {
     constructor(props) {
@@ -53,10 +55,10 @@ export default class AddItemForm extends React.Component {
     render() {
         return (
             <div className="warehouse-section">
-                <div className="collapsible-header">
+                <div className="collapsible-header" onClick={() => toggleHidden('collapsible-add-item')}>
                     Add An Item
                 </div>
-                <div className="collapsible">
+                <div id="collapsible-add-item" className="hidden">
                     <div className="collapsible-item-content">
                         <div id="add-item-section">
                             <form onSubmit={this.handleSubmit} method="post" id="add-item-form">

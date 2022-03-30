@@ -25,6 +25,7 @@ export function sortItems(data, sortBy) {
     return sortedItems;
 }
 
-export function toggleHidden (target){
+export function toggleHidden(target) {
+    console.log(target);
     document.getElementById(target).classList.toggle("hidden");
 }
