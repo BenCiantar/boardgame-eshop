@@ -28,3 +28,7 @@ export function sortItems(data, sortBy) {
 export function toggleHidden(target) {
     document.getElementById(target).classList.toggle("hidden");
 }
+
+export function formatDate(date){
+    return date.slice(0, 10);
+}

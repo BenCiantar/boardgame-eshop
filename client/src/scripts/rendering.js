@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { BiPlus, BiMinus } from "react-icons/bi";
+import { formatDate } from "./utils";
 import * as config from "../config";
 
 
@@ -280,16 +281,17 @@ function createOrder (cart, props) {
 export function renderOrderList(orders) {
     let rows = [];
     for (let i = 0; i < orders.length; i++) {
+        let date = formatDate(orders[i].timestamp);
         rows.push(
             <div className="collapsible-order-content">
                 <div className="date-col">
-                    <p>{orders[i].timestamp}</p>
+                    <p>{date}</p>
                 </div>
                 <div className="id-col">
                     <p>{orders[i]._id}</p>
                 </div>
                 <div className="total-col">
-                    <p>{orders[i].totalPrice}</p>
+                    <p>{orders[i].totalPrice}kr</p>
                 </div>
                 <div className="address-col">
                     {/* <p>{orders[i].address}, {orders[i].city}, {orders[i].postcode}</p> */}
