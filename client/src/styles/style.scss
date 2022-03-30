@@ -1,5 +1,5 @@
 @import 'variables', 'fonts';
-@import 'ItemList', 'Header', 'LoginCreate', 'LoginForm', 'AddItemForm', 'CreateAccountForm', 'Warehouse', 'DesktopNav', 'Footer', 'Cart';
+@import 'ItemList', 'Header', 'LoginCreate', 'LoginForm', 'AddItemForm', 'CreateAccountForm', 'Warehouse', 'MyOrders', 'DesktopNav', 'Footer', 'Cart';
 
 * {
     margin: 0; 
@@ -16,6 +16,7 @@
 }
 
 main {
+    min-height: 550px;
     h1 {
         font-size: $banner-text;
     }

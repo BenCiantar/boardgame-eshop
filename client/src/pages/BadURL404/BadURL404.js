@@ -1,21 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Header } from "../../components";
+import { Header, DesktopNav, Footer, Cart } from "../../components";
+import React from 'react'
 
 
-function BadURL404() {
+function BadURL404(props) {
     return (
         <>
+            <Cart { ...props } />
             <Header />
+            <DesktopNav { ...props } />
             <main>
-                <div>
-                    <h1>Router Test - 404!</h1>
-                    <nav>
-                        <Link to="/">Home</Link>
-                        <Link to="/about">About</Link>
-                    </nav>
-                </div>
+                Oops! This page doesn't seem to exist!
             </main>
+            <Footer />
         </>
     )
 }

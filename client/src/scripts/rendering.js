@@ -41,7 +41,7 @@ export function renderItemList(items, props) {
 
 export function renderDesktopMenu(props) {
     const guestMenu = [<Link to='/'>Home</Link>, <Link to='/about'>About</Link>, <Link to='/logincreate'>Login</Link>];
-    const userMenu = [<Link to='/'>Home</Link>, <Link to='/about'>About</Link>, <Link to='/orders'>Orders</Link>, <Link to='/account'>Account</Link>, <Link to='/' onClick={() => logout(props)}>Logout</Link>];
+    const userMenu = [<Link to='/'>Home</Link>, <Link to='/about'>About</Link>, <Link to='/my-orders'>My Orders</Link>, <Link to='/account'>Account</Link>, <Link to='/' onClick={() => logout(props)}>Logout</Link>];
     const staffMenu = [<Link to='/'>Home</Link>, <Link to='/about'>About</Link>, <Link to='/warehouse'>Warehouse</Link>, <Link to='/' onClick={() => logout(props)}>Logout</Link>];
 
     const rows = [];
@@ -147,7 +147,6 @@ function removeFromCart (item, props) {
 }
 
 function updateUserCartDB(cart, userEmail) {
-    console.log("running", cart)
     fetch(`${config.API_BASE_URL}/update-user-cart/${userEmail}`, {
         method: 'PATCH',
         body: JSON.stringify({
@@ -231,14 +230,13 @@ export function createOrder (cart, props) {
     })
     .then(() => {
     props.setCart([]);
-    console.log(props.cart);
     alert('Your order was placed successfully!');
     })
     .then(() => {
     updateUserCartDB([], props.user.email);
     })
-    .catch((error) => {
-        console.log(error);
+    .catch((err) => {
+        console.log(err);
     });
 }
 
@@ -288,7 +286,6 @@ export function renderOrderList(orders, isStaff) {
 
 function updateOrderStatus(orderId){
     const status = document.getElementById(`${orderId}-select`).value;
-    console.log("Updating", orderId, status)
     
     fetch(`${config.API_BASE_URL}/update-order-status/${orderId}`, {
         method: 'PATCH',

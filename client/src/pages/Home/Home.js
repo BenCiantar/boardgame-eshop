@@ -1,5 +1,5 @@
 import { Header, DesktopNav, Footer, ItemList, Cart } from "../../components";
-import React from 'react'
+import React from 'react';
 
 
 function Home(props) {

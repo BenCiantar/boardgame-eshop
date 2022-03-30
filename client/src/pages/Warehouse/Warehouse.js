@@ -13,7 +13,6 @@ function Warehouse(props) {
                     <div id="warehouse-wrapper">
                         <Orders type="Active" isStaff={true} />
                         <Orders type="Past" isStaff={true} /> 
-                        {/* userEmail={props.user.email} PASS FOR NON STAFF*/}
                         <AddItemForm />
                     </div>
                 </main>
