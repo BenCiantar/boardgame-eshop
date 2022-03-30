@@ -269,16 +269,6 @@ function createOrder (cart, props) {
     .catch((error) => {
         console.log(error);
     });
-
-    //Check if user is signed in - if not alert that they must first sign in
-    //Copy existing cart to user cart on sign in, empty local storage cart
-
-    //Create a new object containing order details - logged in user ID, timestamp, cart items
-    //Set packaged, shipped, delivered to false
-
-    //Empty current cart
-
-    //Insert the order document into the orders MongoDB collection
 }
 
 export function renderOrderList(orders) {
@@ -297,7 +287,7 @@ export function renderOrderList(orders) {
                     <p>{orders[i].totalPrice}kr</p>
                 </div>
                 <div className="address-col">
-                    {/* <p>{orders[i].address}, {orders[i].city}, {orders[i].postcode}</p> */}
+                    <p>{orders[i].address}, {orders[i].city}, {orders[i].postcode}</p>
                 </div>
                 <div className="status-col">
                     <p>{orders[i].status}</p>

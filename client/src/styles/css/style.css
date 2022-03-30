@@ -767,12 +767,11 @@
 #warehouse-wrapper .warehouse-section div {
   width: 80vw;
   height: auto;
-  background-color: green;
 }
 
 #warehouse-wrapper .warehouse-section div #collapsible-order-headings {
   width: 100%;
-  height: 80px;
+  height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -786,7 +785,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: yellow;
+  border-style: solid;
+  border-width: 0 0 1px 0;
 }
 
 #warehouse-wrapper .warehouse-section div .collapsible-order-content {
@@ -805,6 +805,33 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+}
+
+#warehouse-wrapper .warehouse-section div .date-col {
+  width: 15%;
+  text-align: left;
+}
+
+#warehouse-wrapper .warehouse-section div .id-col {
+  width: 25%;
+  text-align: left;
+}
+
+#warehouse-wrapper .warehouse-section div .total-col {
+  width: 10%;
+  text-align: center;
+}
+
+#warehouse-wrapper .warehouse-section div .address-col {
+  width: 30%;
+  text-align: left;
+}
+
+#warehouse-wrapper .warehouse-section div .status-col {
+  width: 20%;
+  text-align: left;
 }
 
 #warehouse-wrapper .warehouse-section div .collapsible-item-content {
