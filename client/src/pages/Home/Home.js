@@ -5,11 +5,11 @@ import React from 'react'
 function Home(props) {
     return (
         <>
-            <Cart { ...props }/>
+            <Cart { ...props } />
             <Header />
-            <DesktopNav { ...props }/>
+            <DesktopNav { ...props } />
             <main>
-                <ItemList { ...props }/>
+                <ItemList { ...props } />
             </main>
             <Footer />
         </>

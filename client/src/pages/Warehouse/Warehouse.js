@@ -1,4 +1,4 @@
-import { Header, DesktopNav, AddItemForm, Orders, Footer } from "../../components";
+import { Header, DesktopNav, AddItemForm, Orders, Footer, Cart } from "../../components";
 import React from 'react'
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -7,8 +7,9 @@ function Warehouse(props) {
     if (props.user.isLoggedIn === true && props.user.isStaff === true) {
         return (
             <>
+                <Cart { ...props } />
                 <Header />
-                <DesktopNav {...props}/>
+                <DesktopNav {...props} />
                 <main>
                     <div id="warehouse-wrapper">
                         <Orders type="Active" isLoggedIn={true} />

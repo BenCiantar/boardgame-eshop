@@ -1,4 +1,4 @@
-import { Header, DesktopNav, LoginForm, CreateAccountForm, Footer } from "../../components";
+import { Header, DesktopNav, LoginForm, CreateAccountForm, Footer, Cart } from "../../components";
 import React from 'react'
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ function LoginCreate(props) {
     if (loginSuccessful === true) {
         return (
             <>
+                <Cart { ...props } />
                 <Header />
                 <DesktopNav {...props}/>
                 <main>
