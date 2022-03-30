@@ -163,29 +163,11 @@ function updateUserCartDB(cart, userEmail) {
 }
 
 
-export function renderCartItems(props) {
+export function renderCartItems(props, totalPrice) {
     const rows = [];
     const cart = props.cart;
-    let totalPrice = 0;
-
-    rows.push(
-    <div className="cart-item" key={"cart-head"}>
-        <div className="cart-image">
-        </div>
-        <div className="cart-product">
-            <p>Product</p>
-        </div>
-        <div className="cart-quantity">
-            <p>Qty</p>
-        </div>
-        <div className="cart-price">
-            <p>Price</p>
-        </div>
-    </div>
-    );
 
     for (let i = 0; i < cart.length; i++) {
-        totalPrice += cart[i].quantity * cart[i].price
         rows.push(
             <>
                 <div className="cart-item" key={"cart-" + i}>
@@ -206,22 +188,6 @@ export function renderCartItems(props) {
         );
     }
 
-    rows.push(
-    <div className="cart-item" key={"cart-foot"}>
-        <div className="cart-image">
-            <button onClick={() => createOrder(cart, props)}>Order</button>
-        </div>
-        <div className="cart-product">
-            <p id="footerp">Total:</p>
-        </div>
-        <div className="cart-quantity">
-        </div>
-        <div className="cart-price">
-            <p>{ totalPrice }kr</p>
-        </div>
-    </div>
-    );
-
     return rows;
 }
 
@@ -229,7 +195,11 @@ export function renderCartItems(props) {
 
 //----------------Orders
 
-function createOrder (cart, props) {
+export function createOrder (cart, props) {
+    if (cart.length < 1){
+        alert("Please add an item to your cart before ordering!");
+        return;
+    }
 
     let totalPrice = 0;
     let totalQuantity = 0;
@@ -240,6 +210,7 @@ function createOrder (cart, props) {
     }
 
     const newOrderDetails = {
+        "orderNo": Date.now().toString(),
         "email": props.user.email,
         "status": "Paid",
         "totalQuantity": totalQuantity,
@@ -280,13 +251,13 @@ export function renderOrderList(orders, isStaff) {
         if (isStaff && orders[i].status != "Delivered") {
             status.push( 
                         <>
-                            <select id={orders[i]._id+"-select"}>
+                            <select id={orders[i].orderNo+"-select"}>
                                 <option value="Paid">Paid</option>
                                 <option value="Packaged">Packaged</option>
                                 <option value="Shipped">Shipped</option>
                                 <option value="Delivered">Delivered</option>
                             </select>
-                            <button onClick={() => updateOrderStatus(orders[i])}>Update</button>
+                            <button onClick={() => updateOrderStatus(orders[i].orderNo)}>Update</button>
                         </>
             )
         } else {
@@ -298,7 +269,7 @@ export function renderOrderList(orders, isStaff) {
                     <p>{date}</p>
                 </div>
                 <div className="id-col">
-                    <p>{orders[i]._id}</p>
+                    <p>{orders[i].orderNo}</p>
                 </div>
                 <div className="total-col">
                     <p>{orders[i].totalPrice}kr</p>
@@ -312,11 +283,23 @@ export function renderOrderList(orders, isStaff) {
             </div>
         );
     }
-
     return rows;
 }
 
-function updateOrderStatus(order){
-    const newStatus = document.getElementById(`${order._id}-select`).value;
-    console.log(newStatus);
+function updateOrderStatus(orderId){
+    const status = document.getElementById(`${orderId}-select`).value;
+    console.log("Updating", orderId, status)
+    
+    fetch(`${config.API_BASE_URL}/update-order-status/${orderId}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+            status,
+        }),
+        headers: {
+            "content-type": "application/json",
+        },
+    })
+    .catch((err) => {
+        console.error(err);
+    });
 }

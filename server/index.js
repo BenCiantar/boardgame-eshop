@@ -116,10 +116,8 @@ app.post('/login', async (req, res) => {
 //Save the newest version of the user cart to the DB with every change
 app.patch('/update-user-cart/:userEmail', async (req, res) => {
     const userEmail = req.params.userEmail;
-    console.log(req.params)
-    console.log(userEmail)
     await userCollection.updateOne({ "email": userEmail }, { $set: req.body });
-
+    console.log(req.body);
     res.status(200).end();
 });
 
@@ -148,26 +146,17 @@ app.get("/user-orders/:query", async (req, res) => {
     res.json(filteredItems);
 });
 
+//Update the status of an order
+app.patch('/update-order-status/:id', async (req, res) => {
+    const id = req.params.id;
+
+    await orderCollection.updateOne({"orderNo": id }, { $set: req.body });
+    console.log(req.body);
+
+    res.status(200).end();
+});
+
 // Keep server running
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}.`);
 });
-
-
-
-
-
-
-// app.delete('/users/:userId', async (req, res) => {
-//     const selectedUserId = req.params.userId;
-//     await userCollection.deleteOne({_id: selectedUserId});
-
-//     res.status(200).end();
-// });
-
-// app.put('/user/:userId', async (req, res) => {
-//     const selectedUserId = req.params.userId;
-//     await userCollection.replaceOne({_id: selectedUserId}, req.body);
-
-//     res.status(200).end();
-// });
