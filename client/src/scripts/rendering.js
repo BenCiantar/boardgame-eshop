@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaDollarSign } from "react-icons/fa";
 import { BiPlus, BiMinus } from "react-icons/bi";
 import { formatDate } from "./utils";
 import * as config from "../config";
@@ -22,6 +22,9 @@ export function renderItemList(items, props) {
                 <div className="item-purchase">
                     <button className="buy-btn btn-in-stock" onClick={() => addToCart(items[i], props)}>
                         <FaShoppingCart /> {items[i].price} kr
+                    </button>
+                    <button className="buy-btn btn-in-stock" onClick={() => quickBuy(items[i], props)}>
+                        <FaDollarSign /> Quick Buy
                     </button>
                 </div>
             </div>
@@ -193,6 +196,42 @@ export function renderCartItems(props, totalPrice) {
 
 
 //----------------Orders
+
+function quickBuy(item, props) {
+    if (props.user.isLoggedIn) {
+        const cart = [item];
+
+        const newOrderDetails = {
+            "orderNo": Date.now().toString(),
+            "email": props.user.email,
+            "status": "Paid",
+            "totalQuantity": 1,
+            "totalPrice": item.price,
+            "address": props.user.address,
+            "city": props.user.city,
+            "postcode": props.user.postcode,
+            "itemList": cart,
+            "timestamp": new Date()
+        }
+
+        fetch(`${config.API_BASE_URL}/create-order`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newOrderDetails),
+        })
+        .then(() => {
+        alert('Your order was placed successfully!');
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    } else {
+        alert("You must be logged in to purchase items!")
+    }
+}
+
 
 export function createOrder (cart, props) {
     if (cart.length < 1){
