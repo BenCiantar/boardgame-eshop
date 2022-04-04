@@ -14,7 +14,8 @@ Key Learnings:
 
     JS/React:
     
-      Vastly increased comfort using states to handle things like cart functionality and checking whether the user is logged in.
+      Vastly increased comfort using states to handle things like cart functionality and checking 
+      whether the user is logged in.
 
       Using React Router to handle navigation between Pages.
                 
