@@ -98,7 +98,7 @@ function addToCart (item, props) {
 
         //Check if item already exists in cart
         for (let product of newCart) {
-            if (product.title == item.title){
+            if (product.title === item.title){
                 itemExists = true;
                 product.quantity += 1;
             }
@@ -133,7 +133,7 @@ function removeFromCart (item, props) {
 
     //Check if item already exists in cart
     for (let i = 0; i < newCart.length; i++) {
-        if (newCart[i].title == item.title){
+        if (newCart[i].title === item.title){
             newCart[i].quantity -= 1;
 
             if (newCart[i].quantity < 1) {
@@ -285,7 +285,7 @@ export function renderOrderList(orders, isStaff) {
     for (let i = 0; i < orders.length; i++) {
         let date = formatDate(orders[i].timestamp);
         let status = [];
-        if (isStaff && orders[i].status != "Delivered") {
+        if (isStaff && orders[i].status !== "Delivered") {
             status.push( 
                         <>
                             <select id={orders[i].orderNo+"-select"}>
