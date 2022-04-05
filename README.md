@@ -37,6 +37,17 @@ Key Learnings:
       
       How to connect to a database.
       
-      How to use methods (POST, GET, DELETE etc.) to store, retrieve and manipulate data in the DB.
+      How to use CRUD operators (POST, GET, DELETE etc.) to store, retrieve and manipulate data in the DB.
+      
+    Deployment:
+      
+      Used MongoAtlas to host DB online.
+      
+      Used Netlify to deploy the client.
+      
+      Used Heroku to deploy the server.
+      
+      Used variable URLs so the site will run both online and locally.
+      
 
 
