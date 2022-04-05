@@ -6,10 +6,10 @@ import { renderOrderList } from "../../scripts/rendering";
 function Orders(props) {
     const [orders, setOrders] = useState([]);
 
-    const endpoint = props.isStaff ? "/all-orders" : `/user-orders/${props.userEmail}`;
-
     //Retrieve all orders from the DB
     useEffect(() => {
+        const endpoint = props.isStaff ? "/all-orders" : `/user-orders/${props.userEmail}`;
+
         fetch(`${config.API_BASE_URL}${endpoint}`, {
             headers: {
                 "content-type": "application/json",
@@ -29,15 +29,15 @@ function Orders(props) {
     //Check if the order list wants active or past orders, and only push those orders to rows
     let filteredOrders = [];
 
-    if (props.type == "Active"){
+    if (props.type === "Active"){
         for (let order of orders) {
-            if (order.status != "Delivered"){
+            if (order.status !== "Delivered"){
                 filteredOrders.push(order);
             }
         }
     } else {
         for (let order of orders) {
-            if (order.status == "Delivered"){
+            if (order.status === "Delivered"){
                 filteredOrders.push(order);
             }
         }
