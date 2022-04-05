@@ -24,7 +24,7 @@ function Orders(props) {
         .catch((err) => {
             console.error(err);
         });
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     //Check if the order list wants active or past orders, and only push those orders to rows
     let filteredOrders = [];
