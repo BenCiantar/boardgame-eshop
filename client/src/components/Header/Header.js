@@ -10,7 +10,7 @@ function Header() {
     return (
         <header id="header">
             <div id="mobile-nav-section"></div>
-            <div id="title-section"><h1>Runic Games</h1></div>
+            <div id="title-section"><h1>R u n i c  -  G a m e s</h1></div>
             <div id="cart-section">
                 <div id="cart-icon" onClick={ handleClick }>
                     <FaShoppingCart />
