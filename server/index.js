@@ -4,7 +4,8 @@ import mongodb from 'mongodb';
 import cors from 'cors';
 
 //Configure MongoDB
-const mongoClient = new mongodb.MongoClient('mongodb://localhost:27017');
+const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017';
+const mongoClient = new mongodb.MongoClient(MONGODB_URL);
 mongoClient.connect();
 
 const db = mongoClient.db('boardgame-eshop-api');
@@ -12,7 +13,7 @@ const userCollection = db.collection('users');
 const itemCollection = db.collection('items');
 const orderCollection = db.collection('orders');
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(cors({origin: "http://localhost:3000"}));
