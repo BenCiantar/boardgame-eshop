@@ -4,7 +4,7 @@
 <h1>#boardgame-eshop</h1>
 <h3>Runic Online Board Game Store</h3>
 
-Brief: Build an e-commerce - both by developing the front end client in a technology of our choice, setting up a database in MongoDb, and creating a RESTful API to connect the two.
+Brief: Build a complete e-commerce website - develop the front end client in a technology of our choice, setting up a database in MongoDb, and creating a RESTful API to connect the two.
 
 Timeframe: Three weeks.
 
