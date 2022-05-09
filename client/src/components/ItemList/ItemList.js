@@ -65,16 +65,14 @@ function ItemList(props) {
                     <div id="filter-button">
                         <button type="submit" value="submit"><GoSettings /></button>
                     </div>
-                    <div id="sort">
-                        <select name="sorting" id="sorting" onChange={handleChange}>
-                            <option value="Release-new-old" defaultValue>Release - New to old</option>
-                            <option value="Release-old-new">Release - Old to new</option>
-                            <option value="Price-high-low">Price - High to low</option>
-                            <option value="Price-low-high">Price - Low to high</option>
-                            <option value="Alpha-a-z">Alphabetical - a to z</option>
-                            <option value="Alpha-z-a">Alphabetical - z to a</option>
-                        </select>
-                    </div>
+                    <select name="sorting" id="sorting" onChange={handleChange}>
+                        <option value="Release-new-old" defaultValue>Release - New to old</option>
+                        <option value="Release-old-new">Release - Old to new</option>
+                        <option value="Price-high-low">Price - High to low</option>
+                        <option value="Price-low-high">Price - Low to high</option>
+                        <option value="Alpha-a-z">Alphabetical - a to z</option>
+                        <option value="Alpha-z-a">Alphabetical - z to a</option>
+                    </select>
                 </div>
                 <form id="search-form" onSubmit={handleSubmit}>
                     <div id="search">

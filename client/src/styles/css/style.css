@@ -69,6 +69,7 @@
   height: 100%;
   width: 40%;
   max-width: 250px;
+  padding-top: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -78,7 +79,7 @@
 #item-list-wrapper #filter-options #sort-and-filter #sorting {
   height: 100%;
   width: 100%;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 #item-list-wrapper #filter-options #sort-and-filter #filter-button {
