@@ -76,7 +76,7 @@ function ItemList(props) {
                         </select>
                     </div>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form id="search-form" onSubmit={handleSubmit}>
                     <div id="search">
                         <div id="search-bar">
                             <label htmlFor="search"></label>

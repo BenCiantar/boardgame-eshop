@@ -16,34 +16,48 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        #search {
+        #search-form{
             height: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            #search-bar {
+            width: 40%;
+            max-width: 250px;
+            #search {
                 height: 100%;
-                margin-right: 15px;
-            }
-            #search-button {
-                height: 100%;
-                button {
-                    background-color: transparent;
-                    border: none;
-                    font-size: 18px;
-                    cursor: pointer;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                #search-bar {
+                    height: 100%;
+                    width: 100%;
+                    background-color: red;
+                    margin-right: 15px;
+                    input {
+                        width: 100%;
+                    }
+                }
+                #search-button {
+                    height: 100%;
+                    button {
+                        background-color: transparent;
+                        border: none;
+                        font-size: 18px;
+                        cursor: pointer;
+                    }
                 }
             }
         }
         #sort-and-filter {
             height: 100%;
+            width: 40%;
+            max-width: 250px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            #sort {
+            #sorting {
                 height: 100%;
+                width: 100%;
                 margin-left: 5px;
             }
             #filter-button {
