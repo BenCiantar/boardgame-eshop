@@ -6,13 +6,13 @@ function DesktopNav(props) {
     const rows = renderDesktopMenu(props);
     
     return (
-        <div id="desktop-nav">
+        <section id="desktop-nav">
             <nav id="desktop-menu">
-                <ul id="desktop-menu-list" key="menuList">
+                <menu id="desktop-menu-list" key="menuList">
                     {rows}
-                </ul>
+                </menu>
             </nav>
-        </div>
+        </section>
     );
 }
 

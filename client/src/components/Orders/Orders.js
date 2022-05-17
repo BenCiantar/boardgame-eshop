@@ -47,7 +47,7 @@ function Orders(props) {
     const rows = renderOrderList(filteredOrders, props.isStaff);
 
     return (
-        <div className="warehouse-section">
+        <section className="warehouse-section">
             <div className="collapsible-header" onClick={() => toggleHidden('collapsible-' + props.type)}>
                 {props.type} Orders
             </div>
@@ -71,7 +71,7 @@ function Orders(props) {
                 </div>
                 {rows}
             </div>
-        </div>
+        </section>
     )
 }
 

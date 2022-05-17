@@ -11,7 +11,7 @@ export function renderItemList(items, props) {
     const rows = [];
     for (let i = 0; i < items.length; i++) {
         rows.push(
-            <div className="item-card grid-item" key={"item-" + i}>
+            <article className="item-card grid-item" key={"item-" + i}>
                 <div className="item-img-container">
                     <img src={items[i].image} alt={items[i].title} />
                 </div>
@@ -27,13 +27,13 @@ export function renderItemList(items, props) {
                         <FaDollarSign /> Quick Buy
                     </button>
                 </div>
-            </div>
+            </article>
         );
     }
     if (rows.length === 0) {
         rows.push(
             <div className="grid-item-wide" key={"item-" + 0}>
-                <h2>No results found, try again.</h2>
+                <h2>Searching for items...</h2>
             </div>
         )
     }
@@ -172,7 +172,7 @@ export function renderCartItems(props, totalPrice) {
     for (let i = 0; i < cart.length; i++) {
         rows.push(
             <>
-                <div className="cart-item" key={"cart-" + i}>
+                <article className="cart-item" key={"cart-" + i}>
                     <div className="cart-image">
                         <img src={cart[i].image} alt={cart[i].title} />
                     </div>
@@ -185,7 +185,7 @@ export function renderCartItems(props, totalPrice) {
                     <div className="cart-price">
                         <p>{cart[i].quantity * cart[i].price}kr</p>
                     </div>
-                </div>
+                </article>
             </>
         );
     }
@@ -302,7 +302,7 @@ export function renderOrderList(orders, isStaff) {
             status = <p>{orders[i].status}</p>;
         }    
         rows.push(
-            <div className="collapsible-order-content">
+            <article className="collapsible-order-content">
                 <div className="date-col">
                     <p>{date}</p>
                 </div>
@@ -318,7 +318,7 @@ export function renderOrderList(orders, isStaff) {
                 <div className="status-col">
                     {status}
                 </div>
-            </div>
+            </article>
         );
     }
     return rows;

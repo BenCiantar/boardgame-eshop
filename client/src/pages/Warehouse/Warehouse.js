@@ -26,10 +26,10 @@ function Warehouse(props) {
                 <DesktopNav {...props}/>
                 <main>
                     <div id="login-create-wrapper">
-                        <div className="return-home">
+                        <nav className="return-home">
                             <h1>This area is for staff only. You must be logged into an @runic account to proceed.</h1>
                             <Link to='/'><button>Return Home</button></Link>
-                        </div>
+                        </nav>
                     </div>
                 </main>
                 <Footer />

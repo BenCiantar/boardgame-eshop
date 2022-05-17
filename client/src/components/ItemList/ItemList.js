@@ -60,7 +60,7 @@ function ItemList(props) {
 
     return (
         <div id="item-list-wrapper">
-            <div id="filter-options">
+            <section id="filter-options">
                 <div id="sort-and-filter">
                     <div id="filter-button">
                         <button type="submit" value="submit"><GoSettings /></button>
@@ -85,7 +85,7 @@ function ItemList(props) {
                         </div>
                     </div>
                 </form>
-            </div>
+            </section>
             <ul id="item-list">
                 {rows}
             </ul>
